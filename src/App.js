@@ -1,4 +1,5 @@
-import './App.css';
+import LandingContainer from './components/LandingPage/LandingContainer';
+import './App.scss';
 
 function App() {
   return (
