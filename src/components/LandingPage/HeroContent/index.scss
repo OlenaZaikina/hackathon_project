@@ -1,0 +1,46 @@
+.app-description {
+    width: 100%;
+    background-image: url('../../../assets/hero-shape2.svg');
+    background-repeat: no-repeat;
+    background-size: 5%;
+    background-position: left bottom;
+    display: flex;
+    justify-content: center;
+    @media(max-width: 800px) {
+        background-size: 13%;
+    }
+    .app-description-container {
+        display: flex;
+        justify-content: space-between;
+        width: 85%;
+        min-width: 300px;
+        padding: 1rem;
+        color: #8B879D;
+        .app-desription-text-content {
+            margin-top: 3rem;
+            width: 30%;
+            text-align: left;
+            @media(max-width: 900px) {
+                width: 60%;
+            }
+            .app-description-header {
+                color: #1c2056;
+                font-size: 50px;
+                padding: 0px 25px 15px 0px;
+                text-align: left;
+                @media(max-width: 700px) {
+                    font-size: 40px;
+                }
+            }
+            .app-description-text span {
+                color: #2d2058;
+                font-size: 20px;
+                font-weight: 600;
+                line-height: 30px;
+            }
+        }
+        .app-description-nav {
+            width: 50%;
+        }
+    }
+}

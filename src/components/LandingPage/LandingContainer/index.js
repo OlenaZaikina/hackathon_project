@@ -1,11 +1,19 @@
-import React from 'react';
+import HeroSection from '../HeroSection';
+import FeaturesContainer from '../FeaturesContainer';
+import Footer from '../Footer';
 
-export default function Landing() {
+import './index.scss';
+
+function LandingContainer() {
 
     return (
 
-        <>
-        <h1>hello</h1>
-        </>
+        <div className="landing-page">
+            <HeroSection />
+            <FeaturesContainer />
+            <Footer />
+        </div>
     )
 }
+
+export default LandingContainer;
