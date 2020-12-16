@@ -1,10 +1,11 @@
+import React from 'react';
 
-
-function Container() {
+export default function Landing() {
 
     return (
 
         <>
+        <h1>hello</h1>
         </>
     )
 }
