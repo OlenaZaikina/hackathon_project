@@ -1,0 +1,44 @@
+.nav-icon {
+    text-align: center;
+    padding: 11px;
+    transition: all 0.3s ease;
+    color: white;
+    font-size: 24px;
+    @media(max-width: 400px) {
+        padding: 6px;
+    }
+    &:hover {
+        background-color: #000;
+        cursor: pointer;
+    }
+}
+
+.main-header {
+    .header-container {
+        background-color: #555;
+        width: 100%;
+        min-width: 210px;
+        height: 55px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .header-icon-bar {
+            margin-right: 30px;
+            justify-self: end;
+            order: 1;
+            span+span {
+                margin-left: 30px;
+                @media(max-width: 400px) {
+                    margin-left: 15px;
+                }
+            }
+            span {
+                @extend .nav-icon;
+            }
+        }
+        .sidenav-button {
+            @extend .nav-icon;
+            order: 0;
+        }
+    }
+}
