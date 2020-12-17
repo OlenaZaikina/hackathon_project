@@ -1,5 +1,6 @@
-import Button from '../Button';
-import './index.scss';
+import Button from './Button';
+import './style.scss';
+
 
 function Footer() {
 

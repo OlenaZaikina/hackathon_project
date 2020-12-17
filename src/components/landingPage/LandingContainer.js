@@ -1,8 +1,9 @@
-import HeroSection from '../HeroSection';
-import FeaturesContainer from '../FeaturesContainer';
-import Footer from '../Footer';
+import HeroSection from './HeroSection';
+import FeaturesContainer from './FeaturesContainer';
+import Footer from './Footer';
 
-import './index.scss';
+import './style.scss';
+
 
 function LandingContainer() {
 

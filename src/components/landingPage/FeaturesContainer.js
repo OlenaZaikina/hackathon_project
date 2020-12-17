@@ -1,5 +1,6 @@
-import Feature from "../Feature";
-import "./index.scss";
+import Feature from "./Feature";
+import './style.scss';
+
 
 function FeaturesContainer() {
 
@@ -19,7 +20,7 @@ function FeaturesContainer() {
   ]
 
   return (
-    <section>
+    <section className="features-section">
       <h2>Best for Tracking Both Good and Bad Habits,<br /> Best for Tracking Anything You Want</h2>
       <div className="features">
         {cardsData.map((el, index) => <Feature key={el.title} title={el.title} content={el.content} />)}

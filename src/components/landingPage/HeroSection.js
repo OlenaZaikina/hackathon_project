@@ -1,5 +1,6 @@
-import HeroContent from '../HeroContent';
-import './index.scss';
+import HeroContent from './HeroContent';
+import './style.scss';
+
 
 function HeroSection() {
     return (

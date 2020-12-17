@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.scss';
 import { NavLink } from 'react-router-dom';
-import loginImg from '../../img/hero-shape1.svg';
+import loginImg from '../../assets/hero-shape1.svg';
 import useForm from './useForm';
 import validateSignUp from './validateSignUp';
 
@@ -62,7 +62,7 @@ const SignUp = ({ submitForm }) => {
                         
                     </form>
                     <div className='login-image'>
-                        <img src={loginImg} />
+                        <img src={loginImg} alt="login"/>
                         <p>Alreade have an account? <NavLink to='signin'>sign in</NavLink></p>
                     </div>
                 </div>
