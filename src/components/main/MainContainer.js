@@ -8,8 +8,10 @@ import './style.scss';
 
 
 function MainContainer() {
-    console.log('main render')
+
     const [openSidenav, setOpenSidenav] = useState(false);
+
+    // let user = JSON.parse(localStorage.getItem('user'));
 
     function toggleNav() {
         return openSidenav ? { width: '250px', margin: '280px' } : { width: '40px', margin: '70px' }
@@ -28,18 +30,8 @@ function MainContainer() {
                     transition: 'all 0.5s linear'
                 }
             }>
+                 {/* <h1>Hello { user._profile.firstName }!</h1> */}
                 <Dashboard />
-
-                {/* <Route render={({ location }) => {
-                    const { pathname } = location;
-                    return (
-                        <>
-                            {pathname === "create-goal" && <CreateContainer />}
-                        </>
-                    )
-                }} /> */}
-                {/* <Route exact path="/create-goal" component={ } /> */}
-
 
             </div>
         </>

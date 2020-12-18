@@ -9,6 +9,9 @@ const FormSignIn = () => {
   function submitForm() {
     setIsSubmitted(true);
   }
+  function logOut() {
+    setIsSubmitted(false);
+  }
   return (
     <>
       <div className='form-container'>
