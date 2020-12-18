@@ -30,9 +30,8 @@ function MainContainer() {
                     transition: 'all 0.5s linear'
                 }
             }>
-                 {/* <h1>Hello { user._profile.firstName }!</h1> */}
+                {/* <h1>Hello { user._profile.firstName }!</h1> */}
                 <Dashboard />
-
             </div>
         </>
     );

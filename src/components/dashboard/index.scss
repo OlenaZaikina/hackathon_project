@@ -1,59 +1,44 @@
 .dashboard-left-panel {
-  width: 100%;
+    width: 100%;
 }
+
 .dashboard-right-panel {
-  width: 40%;
+    width: 40%;
 }
 
 .filters-container {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  margin-bottom: 2rem;
-  .btn {
-    width: 24%;
-    min-width: 160px;
-    height: 95px;
-  }
-  .btn.done {
-    background: rgb(79, 209, 197);
-    background: linear-gradient(
-      90deg,
-      rgba(79, 209, 197, 1) 0%,
-      rgba(40, 184, 100, 1) 89%
-    );
-  }
-  .btn.all {
-    background: rgb(99, 179, 237);
-    background: linear-gradient(
-      90deg,
-      rgba(99, 179, 237, 1) 0%,
-      rgba(49, 130, 206, 1) 89%
-    );
-  }
-  .btn.create-new {
-    background: rgb(229, 235, 240);
-    background: linear-gradient(
-      90deg,
-      rgba(229, 235, 240, 1) 0%,
-      rgba(219, 220, 221, 1) 89%
-    );
-  }
-  .btn.in-progress {
-    background: rgb(251, 232, 116);
-    background: linear-gradient(
-      90deg,
-      rgba(251, 232, 116, 1) 0%,
-      rgba(214, 158, 46, 1) 89%
-    );
-  }
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    margin-bottom: 2rem;
+    .btn {
+        width: 24%;
+        min-width: 160px;
+        height: 95px;
+    }
+    .btn.done {
+        background: rgb(79, 209, 197);
+        background: linear-gradient( 90deg, rgba(79, 209, 197, 1) 0%, rgba(40, 184, 100, 1) 89%);
+    }
+    .btn.all {
+        background: rgb(99, 179, 237);
+        background: linear-gradient( 90deg, rgba(99, 179, 237, 1) 0%, rgba(49, 130, 206, 1) 89%);
+    }
+    .btn.create-new {
+        background: rgb(229, 235, 240);
+        background: linear-gradient( 90deg, rgba(229, 235, 240, 1) 0%, rgba(219, 220, 221, 1) 89%);
+    }
+    .btn.in-progress {
+        background: rgb(251, 232, 116);
+        background: linear-gradient( 90deg, rgba(251, 232, 116, 1) 0%, rgba(214, 158, 46, 1) 89%);
+    }
 }
 
 .goals-container {
-  display: flex;
-  justify-content: space-evenly;
-  flex-wrap: wrap;
-  .goal {
-    width: 15%;
-  }
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    .goal {
+        width: 15%;
+    }
 }
