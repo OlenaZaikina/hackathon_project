@@ -1,11 +1,12 @@
 import React from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import LandingContainer from './components/landingPage/LandingContainer';
-import './App.scss';
 import SignUp from './components/login/FormSignUp';
 import SignIn from './components/login/FormSignIn';
 import Dashboard from './components/login/Dashboard';
 import MainContainer from './components/main/MainContainer';
+import CreateContainer from './components/create-goal/CreateContainer'
+import './App.scss';
 
 function App() {
   return (
@@ -16,7 +17,6 @@ function App() {
         <Route exact path="/signin" component={SignIn} />
         <Route exact path="/dashboard" component={MainContainer} />
       </Router>
-
     </div>
   );
 }
