@@ -1,0 +1,53 @@
+.create-goal-form {
+    max-width: 500px;
+    margin: 0 auto;
+    p {
+        color: #bf1650;
+        font-size: 18px;
+        &::before {
+            display: inline;
+            content: "⚠ ";
+        }
+    }
+    input,
+    textarea {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        border-radius: 4px;
+        border: 1px solid white;
+        padding: 20px 15px;
+        margin-bottom: 10px;
+        font-size: 14px;
+        background-color: rgb(173, 173, 218);
+    }
+    textarea {
+        min-height: 100px;
+    }
+    label {
+        line-height: 2;
+        text-align: left;
+        display: block;
+        margin-bottom: 13px;
+        margin-top: 20px;
+        color: white;
+        font-size: 14px;
+        font-weight: 200;
+        color: rgb(111, 111, 138);
+    }
+    input[type="submit"] {
+        background: #c4bcbc;
+        color: white;
+        text-transform: uppercase;
+        border: none;
+        margin-top: 40px;
+        padding: 20px;
+        font-size: 16px;
+        font-weight: 100;
+        letter-spacing: 10px;
+    }
+    input[type="checkbox"] {
+        width: 5%;
+        display: inline-block;
+    }
+}

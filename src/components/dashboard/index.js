@@ -4,7 +4,7 @@ import FriendsContainer from './FriendsContainer';
 
 function Dashboard() {
   return (
-    <>
+    <div className="dashboard">
       <div className="dashboard-left-panel">
         <FiltersContainer />
         <UserGoalsContainer />
@@ -12,7 +12,7 @@ function Dashboard() {
       <div className="dashboard-right-panel">
         <FriendsContainer />
       </div>
-    </>
+    </div>
   );
 }
 
