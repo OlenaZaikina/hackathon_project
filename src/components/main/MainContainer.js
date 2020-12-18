@@ -22,7 +22,7 @@ function MainContainer() {
 
     return (
         <>
-        <Router>
+            <Router>
             <Header openSidenavFunc={setOpenSidenav} opened={openSidenav} />
             <Sidebar width={toggleNav().width} opened={openSidenav} />
             <div style={
@@ -35,16 +35,16 @@ function MainContainer() {
             }>
                 {/* <h1>Hello { user._profile.firstName }!</h1> */}
                 <Switch>
-          <Route path='/dashboard' exact component={Dashboard} />
-          <Route path='/badges' exact component={Badges} />
-          <Route path='/myGoals' exact component={MyGoals} />
-          <Route path='/newGoal' exact component={NewGoal} />
-          <Route path='/progress' exact component={Progress} />
-          <Route path='/updateProgress' exact component={UpdateProgress} />
-    </Switch>
-    </div>
+                    <Route path='/dashboard' exact component={Dashboard} />
+                    <Route path='/badges' exact component={Badges} />
+                    <Route path='/myGoals' exact component={MyGoals} />
+                    <Route path='/newGoal' exact component={NewGoal} />
+                    <Route path='/progress' exact component={Progress} />
+                    <Route path='/updateProgress' exact component={UpdateProgress} />
+                   
+                </Switch>
+            </div>
            </Router>     
-            
         </>
     );
 }
