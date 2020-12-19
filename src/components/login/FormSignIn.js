@@ -18,7 +18,7 @@ const FormSignIn = () => {
         {!isSubmitted ? (
           <SignIn submitForm={submitForm} />
         ) : (
-          <Redirect to="/dashboard" />          
+          <Redirect to="/dashboard" />                  
         )}
       </div>
     </>
