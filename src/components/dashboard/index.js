@@ -1,18 +1,16 @@
 import FiltersContainer from "./FiltersContainer";
 import UserGoalsContainer from "./UserGoalsContainer";
-import FriendsContainer from './FriendsContainer';
+import FriendsContainer from "./FriendsContainer";
+
+import DashboardFirstRow from "./DashboardFirstRow";
+import DashboardSecondRow from "./DashboardSecondRow";
 
 function Dashboard() {
   return (
-    <>
-      <div className="dashboard-left-panel">
-        <FiltersContainer />
-        <UserGoalsContainer />
-      </div>
-      <div className="dashboard-right-panel">
-        <FriendsContainer />
-      </div>
-    </>
+    <div className="dashboard">
+      <DashboardFirstRow />
+      <DashboardSecondRow />
+    </div>
   );
 }
 

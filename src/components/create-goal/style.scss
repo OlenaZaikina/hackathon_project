@@ -1,44 +1,79 @@
 .create-goal-form {
-    max-width: 500px;
+    width: 60%;
     margin: 0 auto;
     p {
         color: #bf1650;
+        font-size: 14px;
         &::before {
             display: inline;
-            content: "⚠";
+            content: "⚠ ";
         }
     }
-    input {
+    input,
+    textarea {
         display: block;
         box-sizing: border-box;
         width: 100%;
         border-radius: 4px;
-        border: 1px solid white;
-        padding: 10px 15px;
+        border: 1px solid rgb(186, 180, 180);
+        outline: none;
+        padding: 20px 15px;
         margin-bottom: 10px;
         font-size: 14px;
-        background-color: blue;
+        background-color: rgb(255, 255, 255);
+    }
+    textarea {
+        min-height: 100px;
     }
     label {
         line-height: 2;
         text-align: left;
         display: block;
-        margin-bottom: 13px;
+        margin-bottom: 5px;
         margin-top: 20px;
         color: white;
         font-size: 14px;
         font-weight: 200;
-        color: rgb(175, 175, 184);
+        color: rgb(111, 111, 138);
     }
     input[type="submit"] {
-        background: #716f6f;
+        background: #242553;
         color: white;
         text-transform: uppercase;
         border: none;
         margin-top: 40px;
         padding: 20px;
         font-size: 16px;
-        font-weight: 100;
-        letter-spacing: 10px;
+        &:hover {
+            cursor: pointer;
+            background: #414291;
+        }
+    }
+    input[type="checkbox"] {
+        width: 5%;
+        height: 22px;
+        display: inline-block;
+    }
+    .select-container label {
+        width: 100px;
+    }
+    .select-container select {
+        display: block;
+        width: 100%;
+        height: 50px;
+        float: right;
+        margin: 5px 0px;
+        padding: 0px 24px;
+        font-size: 16px;
+        line-height: 1.75;
+        color: #333;
+        background-color: #ffffff;
+        background-image: none;
+        border: 1px solid #cccccc;
+        word-break: normal;
+    }
+    .confirm-label {
+        display: inline-block;
+        width: 80%;
     }
 }

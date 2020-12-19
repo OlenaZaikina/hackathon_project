@@ -6,6 +6,8 @@ function UserGoalsContainer() {
     { percentage: 10, goal: "quite smoke" },
     { percentage: 50, goal: "walk with dog" },
     { percentage: 100, goal: "dring water" },
+    { percentage: 10, goal: "quite smoke2" },
+    { percentage: 50, goal: "walk with dog2" },
   ];
 
   return (
