@@ -8,7 +8,7 @@ function Sidebar({ width, opened }) {
 
     return (
         <div className="sidenav" style={{ width }}>
-        <SidebarItems />
+            <SidebarItems />
         </div>
     );
 }

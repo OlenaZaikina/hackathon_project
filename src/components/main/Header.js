@@ -11,13 +11,14 @@ function Header({ openSidenavFunc, opened }) {
             <header className="main-header">
                 <div className="header-container">
                     <div className="header-icon-bar">
-                        <Link to='/signin' > <span><i className="fas fa-sign-out-alt"></i></span></Link>
-                        <span><i className="fa fa-user" aria-hidden="true"></i></span>
+                        <Link to="/signin"><span><i className="fas fa-sign-out-alt"></i></span></Link>
+                        <Link to="/myOffice"><span><i className="fa fa-user" aria-hidden="true"></i></span></Link>
+                        
                     </div>
                     <div className="sidenav-button" onClick={() => {
                         openSidenavFunc(!localOpened);
-                        console.log('hi? ljgout')
-                    }
+                        console.log('log')
+                        }
                     } >
                         <span><i className="fa fa-bars" aria-hidden="true"></i></span>
                     </div>
