@@ -1,45 +1,29 @@
+import { useState } from "react";
 import FilterButton from "./FilterButton";
-import Select from "react-select";
-import { categories } from "../../utils/selectedDataForGoal";
+import SelectCategory from "./SelectCategory";
 import "./index.scss";
 
+const configs = [
+  {
+    status: "create-new",
+    text: "-",
+  },
+  {
+    status: "done",
+    text: "Done",
+  },
+  {
+    status: "in-progress",
+    text: "In progress",
+  },
+  {
+    status: "all",
+    text: "All",
+  },
+];
+
+
 function FiltersContainer() {
-  const configs = [
-    {
-      status: "create-new",
-      text: "-",
-    },
-    {
-      status: "done",
-      text: "Done",
-    },
-    {
-      status: "in-progress",
-      text: "In progress",
-    },
-    {
-      status: "all",
-      text: "All",
-    },
-  ];
-  const getCategories = () => {
-    let options = [];
-    categories.map((el) => {
-      let option = {};
-      option.value = el.toLowerCase();
-      option.label = el;
-
-      options.push(option);
-    });
-    return options;
-  };
-
-  // const options = [
-  //   { value: "sport", label: "Sport" },
-  //   { value: "health", label: "Health" },
-  //   { value: "Ecology", label: "Other" },
-  // ];
-
   return (
     <>
       <div className="filters-container">
@@ -48,7 +32,30 @@ function FiltersContainer() {
         ))}
       </div>
       <div className="filter-by-category">
-        <Select options={getCategories()} />
+        {/* <Select
+          options={getCategories()}
+          hideSelectedOptions={true}
+          onChange={(value) => console.log(value)}
+        /> */}
+
+        {/* <SortableSelect
+          // react-sortable-hoc props:
+          axis="xy"
+          onSortEnd={onSortEnd}
+          distance={4}
+          // small fix for https://github.com/clauderic/react-sortable-hoc/pull/352:
+          getHelperDimensions={({ node }) => node.getBoundingClientRect()}
+          // react-select props:
+          isMulti
+          options={getCategories()}
+          value={selected}
+          onChange={onChange}
+          components={{
+            MultiValue: SortableMultiValue,
+          }}
+          closeMenuOnSelect={false}
+        /> */}
+        <SelectCategory />
       </div>
     </>
   );
