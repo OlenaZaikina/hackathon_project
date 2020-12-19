@@ -9,6 +9,7 @@ import NewGoal from './pages/NewGoal';
 import Progress from './pages/Progress';
 import UpdateProgress from './pages/UpdateProgress';
 import MyOffice from './pages/MyOffice';
+import CreateContainer from '../create-goal/CreateContainer';
 import './style.scss';
 const user = JSON.parse(localStorage.getItem('user'));
 
@@ -24,34 +25,39 @@ function MainContainer() {
 
     return (
         <>
-        {user
-            ? ( <Router>
-            <Header openSidenavFunc={setOpenSidenav} opened={openSidenav} />
-            <Sidebar width={toggleNav().width} opened={openSidenav} />
-            <div style={
-                {
-                    border: '1px solid black',
-                    margin: '50px 20px 50px 70px',
-                    marginLeft: toggleNav().margin,
-                    transition: 'all 0.5s linear'
-                }
-            }>
-                {/* <h1>Hello { user._profile.firstName }!</h1> */}
-                <Switch>
-                    <Route path='/dashboard' exact component={Dashboard} />
-                    <Route path='/badges' exact component={Badges} />
-                    <Route path='/myGoals' exact component={MyGoals} />
-                    <Route path='/newGoal' exact component={NewGoal} />
-                    <Route path='/progress' exact component={Progress} />
-                    <Route path='/updateProgress' exact component={UpdateProgress} />
-                    <Route path='/myOffice' exact component={MyOffice} />
-                </Switch>
-            </div>
-           </Router> )
-           : (
-               <Redirect to="/signin" />    
-        )
-        }    
+            {user
+                ? (
+
+
+
+                    <Router>
+                        <Header openSidenavFunc={setOpenSidenav} opened={openSidenav} />
+                        <Sidebar width={toggleNav().width} opened={openSidenav} />
+                        <div style={
+                            {
+                                border: '1px solid black',
+                                margin: '50px 20px 50px 70px',
+                                marginLeft: toggleNav().margin,
+                                transition: 'all 0.5s linear'
+                            }
+                        }>
+                            {/* <h1>Hello { user._profile.firstName }!</h1> */}
+                            <Switch>
+                                <Route path='/dashboard' exact component={Dashboard} />
+                                <Route path='/badges' exact component={Badges} />
+                                <Route path='/myGoals' exact component={MyGoals} />
+                                <Route path='/newGoal' exact component={CreateContainer} />
+                                <Route path='/progress' exact component={Progress} />
+                                <Route path='/updateProgress' exact component={UpdateProgress} />
+                                <Route path='/myOffice' exact component={MyOffice} />
+                            </Switch>
+                        </div>
+                    </Router>
+                )
+                : (
+                    <Redirect to="/signin" />
+                )
+            }
         </>
     );
 }

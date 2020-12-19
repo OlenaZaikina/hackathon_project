@@ -10,25 +10,28 @@
     background-repeat: no-repeat;
     top: $top;
     $property: $left;
-    @media(max-width: 730px) {
+    @media(max-width: 1170px) {
         display: none;
     }
 }
 
+$button-bg: #FFD700;
+$button-bg2: #00265f;
+$button-bg-hover: #fff;
 .call-to-action-button {
     margin-top: 20px;
     font-size: 20px;
     font-weight: bold;
-    background-color: #2870DB;
+    background-color: $button-bg;
     padding: 1.5rem 3rem;
     border-radius: 30px;
-    color: #fff;
+    color: $button-bg2;
     box-shadow: 0px 0px 3px rgba(176, 177, 177, 0.2);
     border: none;
     outline: none;
     &:hover {
-        color: #2870DB;
-        background-color: #fff;
+        color: $button-bg;
+        background-color: $button-bg2;
         cursor: pointer;
     }
 }
@@ -60,12 +63,34 @@
                 min-width: 300px;
                 padding: 1rem;
                 color: #8B879D;
+                .logo {
+                    position: absolute;
+                    top: 50px;
+                    left: 75px;
+                    transform: translate(-50%, -50%);
+                    display: flex;
+                    align-items: center;
+                    text-align: right;
+                    img {
+                        width: 50px;
+                        height: 50px;
+                    }
+                    p {
+                        width: 75px;
+                        color: #052975;
+                        font-size: 20px;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        margin-left: 10px;
+                    }
+                }
                 .app-desription-text-content {
                     margin-top: 3rem;
                     width: 30%;
                     text-align: left;
                     @media(max-width: 900px) {
                         width: 60%;
+                        margin-left: 40px;
                     }
                     .app-description-header {
                         color: #1c2056;
@@ -147,9 +172,9 @@
         .social-icon {
             display: inline-flex;
             background: #e3edf7;
-            height: 55px;
-            width: 55px;
-            margin: 40px 15px 0 15px;
+            height: 45px;
+            width: 45px;
+            margin: 25px 10px 0 15px;
             border-radius: 8px;
             align-items: center;
             justify-content: center;

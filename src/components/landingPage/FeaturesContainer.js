@@ -7,15 +7,15 @@ function FeaturesContainer() {
 
   const cardsData = [
     {
-      title: "Advocate1",
-      content: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda debitis eius in? Eius, totam facilis."
+      title: "Set SMART goals and stay on track",
+      content: "Flexible and accurate progress tracking support"
     },
     {
-      title: "Advocate2",
-      content: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda debitis eius in? Eius, totam facilis."
+      title: "Build action plans",
+      content: "Plan and organize the necessary steps that you need to take in order to accomplish your goals"
     }, {
-      title: "Advocate3",
-      content: " Lorem ipsum dolor sit amet consectetur adipisicing elit. Assumenda debitis eius in? Eius, totam facilis."
+      title: "Get funny and smart badges",
+      content: "With each accomplishment take a step back and celebrate your success - collect our badges!"
     }
   ]
 
