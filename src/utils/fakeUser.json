@@ -1,0 +1,40 @@
+{
+    "users": [
+        {
+            "userId": "1",
+            "badges": [
+                "badges1",
+                "badges2",
+                "badges3",
+                "badges4"
+            ]
+        },
+        {
+            "userId": "2",
+            "badges": [
+                "badges2",
+                "badges3",
+                "badges4",
+                "badges5"
+            ]
+        },
+        {
+            "userId": "3",
+            "badges": [
+                "badges5",
+                "badges6",
+                "badges7",
+                "badges8"
+            ]
+        },
+        {
+            "userId": "4",
+            "badges": [
+                "badges12",
+                "badges23",
+                "badges32",
+                "badges42"
+            ]
+        }
+    ]
+}
