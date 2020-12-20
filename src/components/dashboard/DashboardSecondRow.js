@@ -1,5 +1,6 @@
 import ChristmasEvent from "./ChristmasEvent";
 import achievementsIcon from "../../assets/dashboard-achievements.svg";
+import { Link } from 'react-router-dom'
 
 function DashboardSecondRow() {
   return (
@@ -10,7 +11,9 @@ function DashboardSecondRow() {
           <span className="icon">
             <img src={achievementsIcon}></img>
           </span>
-          <p>Go to see all your badges</p>
+          <p>
+            <Link to={"/badges"}>Go to see all your badges</Link>
+          </p>
         </div>
       </div>
       <div className="dashboard-right-panel">

@@ -3,7 +3,7 @@ import Dashboard from "../dashboard";
 import Header from './Header';
 import Sidebar from './Sidebar';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import Badges from './pages/Badges';
+import BadgesPage from '../badges-page/BadgesPage';
 import MyGoals from './pages/MyGoals';
 import Progress from './pages/Progress';
 import UpdateProgress from './pages/UpdateProgress';
@@ -19,10 +19,7 @@ function MainContainer() {
     const user = useUser()
     //const toggleUser = useUserUpdate()
 
-
     const [openSidenav, setOpenSidenav] = useState(false);
-   
-
 
     function toggleNav() {
         return openSidenav ? { width: '250px', margin: '280px' } : { width: '40px', margin: '70px' }
@@ -46,7 +43,7 @@ function MainContainer() {
                             {/* <h1>Hello { user._profile.firstName }!</h1> */}
                             <Switch>
                                 <Route path='/dashboard' exact component={Dashboard} />
-                                <Route path='/badges' exact component={Badges} />
+                                <Route path='/badges' exact component={BadgesPage} />
                                 <Route path='/myGoals' exact component={MyGoals} />
                                 <Route path='/newGoal' exact component={CreateContainer} />
                                 <Route path='/progress' exact component={Progress} />
@@ -59,7 +56,7 @@ function MainContainer() {
                 : (
                     <Redirect to="/signin" />
                 )
-            }
+            } 
         </>
     );
 }

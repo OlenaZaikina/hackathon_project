@@ -10,7 +10,7 @@ function CreateContainer() {
     };
 
     const selectGenerate = (data, index) => {
-        return <option>{data}</option>;
+        return <option key={data}>{data}</option>;
     }
 
     return (

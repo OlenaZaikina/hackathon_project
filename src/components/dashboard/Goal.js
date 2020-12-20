@@ -9,13 +9,10 @@ function Goal({ config }) {
     <div className="goal">
       <CircularProgressbar
         value={percentage}
-        text={`${goal}
-        ${percentage}%`}
+        text={`${percentage}%`}
         strokeWidth={4}
-        styles={buildStyles({
-          textSize: "10px",
-        })}
       />
+      {goal}
     </div>
   );
 }
