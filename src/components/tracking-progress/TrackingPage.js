@@ -11,9 +11,11 @@ function TrackingPage() {
 
     return (
         <div className="tracking-container">
-
             <div className="tracking-goal-information">
-
+                <h4>{goal.title}</h4>
+                <p><span>Duration:</span> {goal.estimate}</p>
+                <p>Want to update your progress? </p>
+                <button>Click here</button>
             </div>
             <div className="tracking-progress-bar">
                 <CircularProgressbar

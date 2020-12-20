@@ -3,6 +3,7 @@ import weekBadge from '../assets/weekBadge.svg';
 import monthBadge from '../assets/monthBadge.svg';
 import yearBadge from '../assets/yearBadge.svg';
 import completedBadge from '../assets/completedBadge.svg';
+import comingSoon from '../assets/coming-soon.svg';
 
 export const badgesData = [
     {
@@ -29,7 +30,11 @@ export const badgesData = [
         title: "You completed your goal. Awesome!",
         identifier: 'completedBadge',
         src: completedBadge
+    },
+    {
+        title: "More badges coming soon",
+        identifier: "coming soon",
+        src: comingSoon,
+        className: ""
     }
 ];
-
-// const className = isReceived ? 'received' : 'not-received';
