@@ -6,28 +6,32 @@ import {
   SortableMultiValue,
 } from "./utils";
 
-function SelectCategory() {
-  const [selected, setSelected] = useState([getCategories[0]]);
-  const onChange = (selectedOptions) => setSelected(selectedOptions);
+function SelectCategory({ sortGoals, filterGoals }) {
+  const [selected, setSelected] = useState([getCategories[1]]);
+  const onChange = (selectedOptions) => {
+    setSelected(selectedOptions);
+    selectedOptions = selectedOptions
+      ? selectedOptions.reduce((acc, el) => (acc = [...acc, el.value]), [])
+      : [];
+    filterGoals(selectedOptions);
+  };
 
   const onSortEnd = ({ oldIndex, newIndex }) => {
     const newValue = arrayMove(selected, oldIndex, newIndex);
     setSelected(newValue);
-    console.log(
-      "Values sorted:",
-      newValue.map((i) => i.value)
+    const categories = newValue.reduce(
+      (acc, el) => (acc = [...acc, el.value]),
+      []
     );
+    sortGoals(categories);
   };
 
   return (
     <SortableSelect
-      // react-sortable-hoc props:
       axis="xy"
       onSortEnd={onSortEnd}
       distance={4}
-      // small fix for https://github.com/clauderic/react-sortable-hoc/pull/352:
       getHelperDimensions={({ node }) => node.getBoundingClientRect()}
-      // react-select props:
       isMulti
       options={getCategories()}
       value={selected}
@@ -35,7 +39,6 @@ function SelectCategory() {
       components={{
         MultiValue: SortableMultiValue,
       }}
-      closeMenuOnSelect={false}
     />
   );
 }

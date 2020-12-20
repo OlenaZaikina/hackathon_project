@@ -22,8 +22,7 @@ const configs = [
   },
 ];
 
-
-function FiltersContainer() {
+function FiltersContainer({ sortGoals, filterGoals }) {
   return (
     <>
       <div className="filters-container">
@@ -32,30 +31,7 @@ function FiltersContainer() {
         ))}
       </div>
       <div className="filter-by-category">
-        {/* <Select
-          options={getCategories()}
-          hideSelectedOptions={true}
-          onChange={(value) => console.log(value)}
-        /> */}
-
-        {/* <SortableSelect
-          // react-sortable-hoc props:
-          axis="xy"
-          onSortEnd={onSortEnd}
-          distance={4}
-          // small fix for https://github.com/clauderic/react-sortable-hoc/pull/352:
-          getHelperDimensions={({ node }) => node.getBoundingClientRect()}
-          // react-select props:
-          isMulti
-          options={getCategories()}
-          value={selected}
-          onChange={onChange}
-          components={{
-            MultiValue: SortableMultiValue,
-          }}
-          closeMenuOnSelect={false}
-        /> */}
-        <SelectCategory />
+        <SelectCategory sortGoals={sortGoals} filterGoals={filterGoals} />
       </div>
     </>
   );

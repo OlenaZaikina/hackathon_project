@@ -1,6 +1,31 @@
 .tracking-container {
-    width: 100%;
+    width: 75%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 2rem;
+
     .tracking-progress-bar {
-        width: 30%;
+        width: 25%;
+        min-width: 150px;
+        @media(max-width: 600px){
+            order: 0;
+        }
+    }
+    .tracking-goal-information{
+        h4{
+            font-size: 24px;
+        }
+        h4,span{
+            color: #242553;
+        }
+        @media(max-width: 600px){
+            order: 1;
+        }
+    }
+    @media(max-width: 600px){
+        flex-direction: column;
+        justify-content: center;
     }
 }
