@@ -30,11 +30,5 @@ export const badgesData = [
         title: "You completed your goal. Awesome!",
         identifier: 'completedBadge',
         src: completedBadge
-    },
-    {
-        title: "More badges coming soon",
-        identifier: "coming soon",
-        src: comingSoon,
-        className: ""
     }
 ];

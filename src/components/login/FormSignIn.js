@@ -1,8 +1,8 @@
-import React, { useState, useContext } from 'react';
+import React, { useState } from 'react';
 import './style.scss';
 import SignIn from './SignIn';
 import { Redirect } from "react-router-dom";
-import { useUser, useUserUpdate } from '../../UserContext'
+import { useUser } from '../../UserContext'
 
 const FormSignIn = () => {
   //const isUserAuthenticated = useContext(AuthContext)
