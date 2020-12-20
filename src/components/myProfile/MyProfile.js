@@ -1,12 +1,10 @@
 import React from 'react';
-import { Friends } from '../../utils/friendsData';
+import { userData } from '../../utils/myProfileAPI';
 import './style.scss';
 import userAvatar from "../../assets/avatar_user.svg";
 import achievementsIcon from "../../assets/Badges.svg";
 import achievementsIcon3 from "../../assets/tgg163.svg";
 import achievementsIcon2 from "../../assets/medal194.svg";
-
-const user = JSON.parse(localStorage.getItem('user'));
 
 function MyProfile() {
     return (
@@ -14,7 +12,7 @@ function MyProfile() {
         <div className='user-profile-containe' >
              <div className="user-profile">
                 <img src={userAvatar} alt='avatar' style={{ width: "20%" }} />
-                <h1>{ user._profile.firstName }</h1>
+                <h1>{ userData.first_name }</h1>
                 <button type='button'>change photo</button>
                 <div className="user-badges">
                     <p>achievements</p>             
@@ -24,7 +22,7 @@ function MyProfile() {
                 </div> 
             </div>
             <div className='friend-profile-container'>
-            {Friends.map((friend) => {
+            {userData.friend.map((friend) => {
                 return (
                     <div key={friend.id} className='user-friends-frofile'>
                     <img src={friend.photo} alt='avatar' style={{ width: "40%" }} />

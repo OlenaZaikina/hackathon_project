@@ -18,7 +18,8 @@ function Header({ openSidenavFunc, opened }) {
                         
                         <Link to="/signin" onClick={() => { 
                             toggleUser(null)
-                            history.push('/signin')
+                            localStorage.removeItem('user');
+                            //history.push('/signin')
                             }}><span><i className="fas fa-sign-out-alt"></i></span></Link>
                         <Link to="/my-profile"><span><i className="fa fa-user" aria-hidden="true"></i></span></Link>
                         

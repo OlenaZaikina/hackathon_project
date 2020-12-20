@@ -19,7 +19,7 @@ const SignIn = ({ submitForm }) => {
     const handleSocialLogin = (user) => {
         if (user) {
             //store profile
-            //localStorage.setItem('user', JSON.stringify(user));
+            localStorage.setItem('user', JSON.stringify(user));
             toggleUser(user._profile.firstName)
             }
         submitForm()
