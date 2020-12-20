@@ -15,7 +15,6 @@ export default function validateSignUp(values) {
   } else if (values.password.length < 8) {
     errors.password = 'Password needs to be 8 characters or more';
   }
-
   if (!values.password2) {
     errors.password2 = 'Password is required';
   } else if (values.password2 !== values.password) {
