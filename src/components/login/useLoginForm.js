@@ -30,7 +30,9 @@ const useLoginForm = (callback, validateSignIn) => {
     headers.append('Content-Type', 'application/json');
     //headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
     //headers.append('Access-Control-Allow-Credentials', 'true');
-    console.log(headers, body)
+    for (let item of headers.values()) {
+      console.log(item)
+    }
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     const url = 'http://34.222.107.139:8080/goaltracker/api/login';
     console.log(body,
@@ -38,18 +40,21 @@ const useLoginForm = (callback, validateSignIn) => {
     let response = await fetch(proxyurl + 'http://34.222.107.139:8080/goaltracker/api/login', { method: 'POST', 
     body,
     headers })
-    let json
-    if (response.ok) {
+ 
+    if (response.ok) {  
       console.log('resp ok')
-      json = response.json();
       let resHeader = response.headers;
-      console.log('resHeader', resHeader)
-      console.log('json', json)
+     for (let pair of resHeader.entries()) {
+       if (pair[0] === 'authorization') {
+        return pair[1].substring(7)
+      }        
+    }
+
     } else {
       console.log('resp not ok')
       console.log("response", response)
     } 
-    return json;
+
   }
 
   async function handleSubmit(e) {
@@ -60,12 +65,12 @@ const useLoginForm = (callback, validateSignIn) => {
     let result = await executeLogin(values);
     if (result) {
       console.log(result)
-      localStorage.setItem('user', JSON.stringify(values));
-      toggleUser(values.email)
+      localStorage.setItem('user', JSON.stringify({'token': result}));
+      toggleUser(result)
       return (
         <>
         <Redirect to='/dashboard' />
-        {history.push('/signin')}
+        {history.push('/dashboard')}
       </>
       )
       //do redurect to Dashboard
