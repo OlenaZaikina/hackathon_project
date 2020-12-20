@@ -6,18 +6,21 @@ import loginImg from '../../assets/hero-shape1.svg';
 import useLoginForm from './useLoginForm';
 import validateSignIn from './validateSignIn';
 import SocialButton from './SocialButton'
+import { useUser, useUserUpdate } from '../../UserContext'
 
 const SignIn = ({ submitForm }) => {
+    const oldUser = useUser()
+    const toggleUser = useUserUpdate()
     const {handleChange, values, handleSubmit, errors } = useLoginForm(
         submitForm,
         validateSignIn
     );
 
     const handleSocialLogin = (user) => {
-        console.log('user social login', user);
         if (user) {
             //store profile
-            localStorage.setItem('user', JSON.stringify(user));
+            //localStorage.setItem('user', JSON.stringify(user));
+            toggleUser(user._profile.firstName)
             }
         submitForm()
     }

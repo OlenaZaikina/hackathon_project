@@ -5,19 +5,24 @@ import Sidebar from './Sidebar';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Badges from './pages/Badges';
 import MyGoals from './pages/MyGoals';
-import NewGoal from './pages/NewGoal';
 import Progress from './pages/Progress';
 import UpdateProgress from './pages/UpdateProgress';
-import MyOffice from './pages/MyOffice';
+import ProfilePage from './pages/ProfilePage';
 import CreateContainer from '../create-goal/CreateContainer';
 import './style.scss';
-const user = JSON.parse(localStorage.getItem('user'));
+import { useUser } from '../../UserContext'
+
+//const user = JSON.parse(localStorage.getItem('user'));
+
 
 function MainContainer() {
+    const user = useUser()
+    //const toggleUser = useUserUpdate()
+
 
     const [openSidenav, setOpenSidenav] = useState(false);
+   
 
-    console.log(user)
 
     function toggleNav() {
         return openSidenav ? { width: '250px', margin: '280px' } : { width: '40px', margin: '70px' }
@@ -27,9 +32,6 @@ function MainContainer() {
         <>
             {user
                 ? (
-
-
-
                     <Router>
                         <Header openSidenavFunc={setOpenSidenav} opened={openSidenav} />
                         <Sidebar width={toggleNav().width} opened={openSidenav} />
@@ -49,7 +51,7 @@ function MainContainer() {
                                 <Route path='/newGoal' exact component={CreateContainer} />
                                 <Route path='/progress' exact component={Progress} />
                                 <Route path='/updateProgress' exact component={UpdateProgress} />
-                                <Route path='/myOffice' exact component={MyOffice} />
+                                <Route path='/my-profile' exact component={ProfilePage} />
                             </Switch>
                         </div>
                     </Router>

@@ -3,9 +3,7 @@ import SidebarItems from './SidebarItems';
 
 import './style.scss';
 
-function Sidebar({ width, opened }) {
-    const display = opened ? 'inline' : 'none';
-
+function Sidebar({ width }) {
     return (
         <div className="sidenav" style={{ width }}>
             <SidebarItems />
