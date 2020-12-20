@@ -11,7 +11,7 @@ const useLoginForm = (callback, validateSignIn) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   let history = useHistory();
   const oldUser = useUser()
-    const toggleUser = useUserUpdate()
+  const toggleUser = useUserUpdate()
 
   const handleChange = e => {
     const { name, value } = e.target;
@@ -28,43 +28,35 @@ const useLoginForm = (callback, validateSignIn) => {
               "password": password
           })
     headers.append('Content-Type', 'application/json');
-    //headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
-    //headers.append('Access-Control-Allow-Credentials', 'true');
-    for (let item of headers.values()) {
-      console.log(item)
-    }
+
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     const url = 'http://34.222.107.139:8080/goaltracker/api/login';
-    console.log(body,
-    headers)
     let response = await fetch(proxyurl + 'http://34.222.107.139:8080/goaltracker/api/login', { method: 'POST', 
     body,
     headers })
- 
-    if (response.ok) {  
-      console.log('resp ok')
+    if (response.ok) {
       let resHeader = response.headers;
      for (let pair of resHeader.entries()) {
        if (pair[0] === 'authorization') {
         return pair[1].substring(7)
       }        
     }
-
-    } else {
-      console.log('resp not ok')
-      console.log("response", response)
-    } 
-
+    }
   }
 
   async function handleSubmit(e) {
     e.preventDefault();
-
-    setErrors(validateSignIn(values));
-
+    
+    async function waitForErrors() {
+      return setErrors(validateSignIn(values));
+    }
+    await waitForErrors()
+    if (Object.keys(errors).length > 0) {
+      return
+    }
+    
     let result = await executeLogin(values);
     if (result) {
-      console.log(result)
       localStorage.setItem('user', JSON.stringify({'token': result}));
       toggleUser(result)
       return (
@@ -74,12 +66,10 @@ const useLoginForm = (callback, validateSignIn) => {
       </>
       )
       //do redurect to Dashboard
-      console.log("do redirect to Dashboard")
     } else {
       //show error for user
       console.log("Login failed from server")
     }
-    console.log(result)
 
     setIsSubmitting(true);
   };
@@ -90,7 +80,8 @@ const useLoginForm = (callback, validateSignIn) => {
         callback();
       }
     },
-    [errors]
+    
+    [errors],
   );
 
   return { handleChange, handleSubmit, values, errors };

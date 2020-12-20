@@ -10,7 +10,6 @@ const FormSignIn = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const user = useUser()
  // const toggleUser = useUserUpdate()
- 
 
   function submitForm() {
     setIsSubmitted(true);

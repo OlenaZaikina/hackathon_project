@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Redirect, useHistory } from 'react-router-dom';
 
-const useForm = (callback, validateSignIn) => {
+const useForm = (callback, validateSignUp) => {
   const [values, setValues] = useState({
     username: '',
     email: '',
@@ -30,7 +30,6 @@ const useForm = (callback, validateSignIn) => {
     headers.append('Content-Type', 'application/json');
     headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
     headers.append('Access-Control-Allow-Credentials', 'true');
-    console.log(headers, body)
     const proxyurl = "https://cors-anywhere.herokuapp.com/";
     const url = 'http://34.222.107.139:8080/goaltracker/api/login';
     let response = await fetch(proxyurl + 'http://34.222.107.139:8080/goaltracker/api/register', { method: 'POST', 
@@ -47,12 +46,18 @@ const useForm = (callback, validateSignIn) => {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    setErrors(validateSignIn(values));
+    //setErrors(validateSignIn(values));
+    async function waitForErrors() {
+      return setErrors(validateSignUp(values));
+    }
+    await waitForErrors()
+    if (Object.keys(errors).length > 0) {
+      return
+    }
 
     let result = await executeRegistration(values);
     if (result) {
       //do redurect to Sign In temmperary
-      console.log("do redirect to Sign In temmperary")
       return (
         <>
       <Redirect to='/signin' />
@@ -63,7 +68,6 @@ const useForm = (callback, validateSignIn) => {
       //show error for user
       console.log("Registration failed from server")
     }
-    console.log(result)
 
     setIsSubmitting(true);
   };
