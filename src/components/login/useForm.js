@@ -30,17 +30,18 @@ const useForm = (callback, validateSignUp) => {
     headers.append('Content-Type', 'application/json');
     headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
     headers.append('Access-Control-Allow-Credentials', 'true');
-    const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    const url = 'http://34.222.107.139:8080/goaltracker/api/login';
-    let response = await fetch(proxyurl + 'http://34.222.107.139:8080/goaltracker/api/register', { method: 'POST', 
+    console.log(headers)
+    const proxyurl = "https://cryptic-mesa-87242.herokuapp.com/";
+    const url = 'http://34.222.107.139:8080/goaltracker/api/register';
+    let response = await fetch(proxyurl + ' http://34.222.107.139:8080/goaltracker/api/register', { method: 'POST', 
     body,
     headers })
     let json
     if (response.ok) {
-      json = response.json();
-      console.log(json)
+      //json = response.json();
+      console.log(response)
     } else return 
-    return json;
+    return response;
   }
 
   async function handleSubmit(e) {
@@ -56,6 +57,7 @@ const useForm = (callback, validateSignUp) => {
     }
 
     let result = await executeRegistration(values);
+    console.log('after reg', result)
     if (result) {
       //do redurect to Sign In temmperary
       return (

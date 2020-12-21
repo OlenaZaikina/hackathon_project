@@ -8,8 +8,13 @@ import MainContainer from './components/main/MainContainer';
 import MyGoals from './components/main/pages/MyGoals';
 import { UserProvider } from './UserContext'
 
-function App() {
+function App() { 
+  
+  console.log('app render')
   return (
+
+
+
         <div className="App">
           
             <Router>

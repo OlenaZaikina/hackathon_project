@@ -18,9 +18,10 @@ const SignIn = ({ submitForm }) => {
 
     const handleSocialLogin = (user) => {
         if (user) {
+            let fakeToken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbmRyaXlAdWtyLm5ldCBVU0VSIn0.bpqjpJoR7YVDiBgF9ySvqaCs3aI8-nCCScJ1mhqweZiLtUP-RuDmuM3mqKICPea5MiGiv8yA8rEEGBRyylT-Uw"
             //store profile
-            localStorage.setItem('user', 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ3b3JkZGRkZGRAdWtyLm5ldCBVU0VSIn0.OSnv3rR4s9ugH5dYP4MGRUzbwW0UPwse0zkSyN3DpN9f4w8WOKPJMyyosq1BASIW_AlMxkRDr3CQiMFhnOTuig');
-            toggleUser('eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ3b3JkZGRkZGRAdWtyLm5ldCBVU0VSIn0.OSnv3rR4s9ugH5dYP4MGRUzbwW0UPwse0zkSyN3DpN9f4w8WOKPJMyyosq1BASIW_AlMxkRDr3CQiMFhnOTuig')
+            localStorage.setItem('user', fakeToken);
+            toggleUser(fakeToken)
             }
         submitForm()
     }
