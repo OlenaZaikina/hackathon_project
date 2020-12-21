@@ -130,7 +130,7 @@ $button-bg-hover: #fff;
                 padding-bottom: 4rem;
                 position: relative;
                 &:nth-child(1):after {
-                    @include snowflake(-315px,
+                    @include snowflake(-150px,
                     10px,
                     10rem,
                     left);
