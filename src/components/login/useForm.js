@@ -20,27 +20,46 @@ const useForm = (callback, validateSignUp) => {
     });
   };
 
-  async function executeRegistration({username, email, password}) {
-    let headers = new Headers();
-    const body = JSON.stringify({
-              "name": username,
-              "email": email,
-              "password": password
-          })
-    headers.append('Content-Type', 'application/json');
-    headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
-    headers.append('Access-Control-Allow-Credentials', 'true');
-    const proxyurl = "https://cors-anywhere.herokuapp.com/";
-    const url = 'http://34.222.107.139:8080/goaltracker/api/login';
-    let response = await fetch(proxyurl + 'http://34.222.107.139:8080/goaltracker/api/register', { method: 'POST', 
-    body,
-    headers })
-    let json
-    if (response.ok) {
-      json = response.json();
+  async function executeRegistration({ username, email, password }) {
+
+    try {
+      let headers = new Headers();
+      const body = JSON.stringify({
+        "name": username,
+        "email": email,
+        "password": password
+      })
+      headers.append('Content-Type', 'application/json');
+      headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
+      headers.append('Access-Control-Allow-Credentials', 'true');
+      const proxyurl = "https://cryptic-mesa-87242.herokuapp.com/";
+      const url = 'http://34.222.107.139:8080/goaltracker/api/login';
+      let response = await fetch(proxyurl + 'http://34.222.107.139:8080/goaltracker/api/register', {
+        method: 'POST',
+        body,
+        headers
+      })
+      let json = response.json();
       console.log(json)
-    } else return 
-    return json;
+    } catch (err) {
+      console.log(err.message);
+    }
+
+
+    // try {
+    //   let headers = new Headers();
+    //   const body = JSON.stringify({
+    //     "name": username,
+    //     "email": email,
+    //     "password": password
+    //   })
+    // } catch (err) {
+
+    // }
+    // if (response.ok) {
+
+    // } else return
+    // return json;
   }
 
   async function handleSubmit(e) {
@@ -60,10 +79,10 @@ const useForm = (callback, validateSignUp) => {
       //do redurect to Sign In temmperary
       return (
         <>
-      <Redirect to='/signin' />
-      {history.push('/signin')}
-      </>
-        )
+          <Redirect to='/signin' />
+          {history.push('/signin')}
+        </>
+      )
     } else {
       //show error for user
       console.log("Registration failed from server")

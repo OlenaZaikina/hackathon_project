@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, useHistory  } from 'react-router-dom';
+import { Link  } from 'react-router-dom';
 import { useUserUpdate } from '../../UserContext'
 
 import './style.scss';
@@ -8,7 +8,7 @@ function Header({ openSidenavFunc, opened }) {
     //const user = useUser()
     const toggleUser = useUserUpdate()
     const localOpened = opened;
-    let history = useHistory();
+    //let history = useHistory();
 
     return (
         <>

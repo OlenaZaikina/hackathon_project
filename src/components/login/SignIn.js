@@ -19,8 +19,8 @@ const SignIn = ({ submitForm }) => {
     const handleSocialLogin = (user) => {
         if (user) {
             //store profile
-            localStorage.setItem('user', JSON.stringify(user));
-            toggleUser(user._profile.firstName)
+            localStorage.setItem('user', 'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ3b3JkZGRkZGRAdWtyLm5ldCBVU0VSIn0.OSnv3rR4s9ugH5dYP4MGRUzbwW0UPwse0zkSyN3DpN9f4w8WOKPJMyyosq1BASIW_AlMxkRDr3CQiMFhnOTuig');
+            toggleUser('eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ3b3JkZGRkZGRAdWtyLm5ldCBVU0VSIn0.OSnv3rR4s9ugH5dYP4MGRUzbwW0UPwse0zkSyN3DpN9f4w8WOKPJMyyosq1BASIW_AlMxkRDr3CQiMFhnOTuig')
             }
         submitForm()
     }
@@ -83,8 +83,8 @@ const SignIn = ({ submitForm }) => {
                         </div>
                     </form>
                     <div className='login-image'>
-                        <img src={loginImg} aalt="sign"/>
-                        <p>Create an account<NavLink to="/signup">Sign Up</NavLink></p>
+                        <img src={loginImg} alt="sign"/>
+                        <p>Create an account <NavLink to="/signup">Sign Up</NavLink></p>
                     </div>
                 </div>
             </div>
