@@ -8,11 +8,18 @@ import './style.scss'
 const BadgesPage = () => {
 
     console.log('render')
-    const [badges, setBadges] = useState([]);
+    const [badges, setBadges] = useState();
 
     const displayBadges = async () => {
-        const badges = await getUserBadges();
-        setBadges(badges);
+        try {
+            const reqBadges = await getUserBadges();
+            console.log('requestBadges', reqBadges)
+            setBadges(reqBadges);
+        } catch (err) {
+            console.log(err.message)
+        }
+
+
     }
     displayBadges();
 
@@ -20,10 +27,11 @@ const BadgesPage = () => {
         <div className="badges-page-container">
             {
                 badgesData.map((item) => {
+                    console.log('mp')
                     const badgeClass = badges.includes(item.identifier) ? 'received' : 'not-received';
                     return <div key={Date.now() + item.identifier} className={`${badgeClass === 'received' ? 'badge-card-received' : 'badge-card-not-received'} `}
                         style={{ order: `${badgeClass === 'received' ? 0 : 1}` }}>
-                        {badgeClass==='received'&&<p>Achieved</p>}
+                        {badgeClass === 'received' && <p>Achieved</p>}
                         <img alt={item.identifier} src={item.src} className={badgeClass} />
                         <BadgeText title={item.title} />
                     </div>

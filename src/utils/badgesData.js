@@ -3,7 +3,6 @@ import weekBadge from '../assets/weekBadge.svg';
 import monthBadge from '../assets/monthBadge.svg';
 import yearBadge from '../assets/yearBadge.svg';
 import completedBadge from '../assets/completedBadge.svg';
-import comingSoon from '../assets/coming-soon.svg';
 
 export const badgesData = [
     {
