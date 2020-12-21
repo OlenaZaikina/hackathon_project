@@ -9,13 +9,16 @@ import UpdateProgress from './pages/UpdateProgress';
 import ProfilePage from './pages/ProfilePage';
 import CreateContainer from '../create-goal/CreateContainer';
 import './style.scss';
-import { useUser } from '../../UserContext'
+import { useUser, useUserUpdate } from '../../UserContext'
 import TrackingPage from '../tracking-progress/TrackingPage';
 
 
 
 function MainContainer() {
-    const user = useUser()
+    let user = useUser()
+    let toggleUser = useUserUpdate()
+    if (!user)  toggleUser(localStorage.getItem('user'))
+    console.log(user)
     const [openSidenav, setOpenSidenav] = useState(false);
 
     function toggleNav() {
