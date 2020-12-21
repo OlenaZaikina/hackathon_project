@@ -53,7 +53,7 @@ headers.append('Content-Type', 'application/json');
  
 headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
 headers.append('Access-Control-Allow-Credentials', 'true');
-const proxyurl = "https://cors-anywhere.herokuapp.com/";
+const proxyurl = "https://cryptic-mesa-87242.herokuapp.com/";
 const url = 'http://34.222.107.139:8080/goaltracker/api/login';
 let response = fetch(proxyurl + 'http://34.222.107.139:8080/goaltracker/api/register', { method: 'POST', 
 body,

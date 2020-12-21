@@ -29,7 +29,7 @@ const useLoginForm = (callback, validateSignIn) => {
           })
     headers.append('Content-Type', 'application/json');
 
-    const proxyurl = "https://cors-anywhere.herokuapp.com/";
+    const proxyurl = "https://cryptic-mesa-87242.herokuapp.com/";
     const url = 'http://34.222.107.139:8080/goaltracker/api/login';
     let response = await fetch(proxyurl + 'http://34.222.107.139:8080/goaltracker/api/login', { method: 'POST', 
     body,

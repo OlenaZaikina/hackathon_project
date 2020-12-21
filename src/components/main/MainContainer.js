@@ -8,13 +8,16 @@ import MyGoals from './pages/MyGoals';
 import UpdateProgress from './pages/UpdateProgress';
 import ProfilePage from './pages/ProfilePage';
 import CreateContainer from '../create-goal/CreateContainer';
-import './style.scss';
 import { useUser } from '../../UserContext'
 import TrackingPage from '../tracking-progress/TrackingPage';
+import './style.scss';
 
 
 
 function MainContainer() {
+
+
+    console.log('main render')
     const user = useUser()
     const [openSidenav, setOpenSidenav] = useState(false);
 

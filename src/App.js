@@ -7,8 +7,13 @@ import FormSignIn from './components/login/FormSignIn';
 import MainContainer from './components/main/MainContainer';
 import { UserProvider } from './UserContext'
 
-function App() {
+function App() { 
+  
+  console.log('app render')
   return (
+
+
+
         <div className="App">
           <Router>
             <UserProvider>
