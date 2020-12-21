@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import LandingContainer from './components/landingPage/LandingContainer';
 import './App.scss';

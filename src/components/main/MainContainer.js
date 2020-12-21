@@ -12,6 +12,8 @@ import './style.scss';
 import { useUser } from '../../UserContext'
 import TrackingPage from '../tracking-progress/TrackingPage';
 
+
+
 function MainContainer() {
     const user = useUser()
     const [openSidenav, setOpenSidenav] = useState(false);
@@ -50,7 +52,7 @@ function MainContainer() {
                 : (
                     <Redirect to="/signin" />
                 )
-            }
+            } 
         </>
     );
 }
