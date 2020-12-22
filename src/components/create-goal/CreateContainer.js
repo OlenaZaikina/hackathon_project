@@ -1,16 +1,18 @@
 import { useForm } from "react-hook-form";
 import { categories, estimate } from '../../utils/selectedDataForGoal';
 import './style.scss';
+import { useUser } from '../../UserContext';
+import { useGoal, useGoalUpdate } from '../../GoalContext';
+import { Redirect, useHistory } from 'react-router-dom';
 
-
-export const getUserGoals = async () => {
+export const getUserGoals = async (token) => {
     try {
         const response = await fetch('https://cryptic-mesa-87242.herokuapp.com/' + 'http://34.222.107.139:8080/goaltracker/api/users/goals', {
             headers: {
                 'Content-Type': 'application/json',
                 'Access-Control-Allow-Origin': 'http://localhost:3000',
                 'Access-Control-Allow-Credentials': 'true',
-                'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('user')).token
+                'Authorization': 'Bearer ' + token
             }
         }
         )
@@ -22,11 +24,15 @@ export const getUserGoals = async () => {
 }
 
 function CreateContainer() {
+    const user = useUser()
+    const newGoal = useGoal()
+    let history = useHistory();
     const { register, handleSubmit, errors } = useForm();
-
+    console.log(newGoal)
     const onSubmit = async data => {
+        console.log('here')
         try {
-            const token = 'Bearer ' + JSON.parse(localStorage.getItem('user')).token;
+            const token = 'Bearer ' + user;
             const response = await fetch('https://cryptic-mesa-87242.herokuapp.com/' + 'http://34.222.107.139:8080/goaltracker/api/users/goals',
                 {
                     method: 'POST',
@@ -34,20 +40,21 @@ function CreateContainer() {
                         'Content-Type': 'application/json',
                         'Access-Control-Allow-Origin': 'http://localhost:3000',
                         'Access-Control-Allow-Credentials': 'true',
-                        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('user')).token
+                        'Authorization': token
                     },
                     body: JSON.stringify(data)
                 }
             )
-            const responseJson = await response.json();
-            return responseJson;
+            return (
+                <>{console.log('redirect')}
+                    <Redirect to='/dashboard' />
+                    {history.push('/dashboard')}
+                </>
+            )
         } catch (err) {
             return err.message;
         }
     };
-
-
-    getUserGoals();
 
     const selectGenerate = (data, index) => {
         return <option key={data}>{data}</option>;

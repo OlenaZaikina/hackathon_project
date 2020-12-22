@@ -3,6 +3,7 @@ import FiltersContainer from "./FiltersContainer";
 import GoalsContainer from "./GoalsContainer";
 import FriendsContainer from "./FriendsContainer";
 import { getUserGoals } from "../create-goal/CreateContainer";
+import { useUser } from '../../UserContext'
 
 function DashboardFirstRow() {
   const [initialGoals, setInitialGoals] = useState([]);
@@ -11,8 +12,10 @@ function DashboardFirstRow() {
   const [isGoals, setIsGoals] = useState(false);
   const [offset, setOffset] = useState(0);
   const [goalsPerPage, setGoalsPerPage] = useState(5);
+  const token = useUser()
   const passInitialGoals = async () => {
-    const goals = await getUserGoals();
+    const goals = await getUserGoals(token);
+    console.log('goals', goals)
     setIsGoals(true);
     setInitialGoals(goals);
     setGoals(goals.slice(offset, offset + goalsPerPage));

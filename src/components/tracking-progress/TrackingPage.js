@@ -2,14 +2,16 @@ import { useState } from 'react';
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import { getUserGoals } from '../create-goal/CreateContainer';
 import GoalInformation from './GoalInformation';
+import { useUser } from '../../UserContext'
 import './style.scss';
 
 function TrackingPage() {
+    let token = useUser()
     const [goals, setGoals] = useState([]);
     const [isGoals, setIsGoals] = useState(false);
 
     const setInitialGoals = async () => {
-        const initialGoals = await getUserGoals();
+        const initialGoals = await getUserGoals(token);
         setIsGoals(true);
         setGoals(initialGoals);
     }
