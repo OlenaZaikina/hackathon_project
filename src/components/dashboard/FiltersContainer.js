@@ -1,35 +1,35 @@
-import { useState } from "react";
 import FilterButton from "./FilterButton";
 import SelectCategory from "./SelectCategory";
 import "./index.scss";
 
-const configs = [
-  {
-    status: "create-new",
-    text: "-",
-  },
-  {
-    status: "done",
-    text: "Done",
-  },
-  {
-    status: "in-progress",
-    text: "In progress",
-  },
-  {
-    status: "all",
-    text: "All",
-  },
-];
 
-function FiltersContainer({ sortGoals, filterGoals }) {
+// const configs = [
+//   {
+//     status: "NEW",
+//     text: "New",
+//   },
+//   {
+//     status: "completed",
+//     text: "Done",
+//   },
+//   {
+//     status: "in_progress",
+//     text: "In progress",
+//   },
+//   {
+//     status: "all",
+//     text: "All",
+//   },
+// ];
+
+function FiltersContainer({ sortGoals, filterGoals, filterByStatus }) {
   return (
     <>
-      <div className="filters-container">
+      {/* <div className="filters-container">
         {configs.map((el) => (
-          <FilterButton key={el.status} config={el} />
+          <FilterButton key={el.status} config={el} filterByStatus={filterByStatus}/>
         ))}
-      </div>
+      </div> */}
       <div className="filter-by-category">
         <SelectCategory sortGoals={sortGoals} filterGoals={filterGoals} />
       </div>
