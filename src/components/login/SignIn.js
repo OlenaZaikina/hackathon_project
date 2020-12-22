@@ -56,7 +56,7 @@ const SignIn = ({ submitForm }) => {
                                 id='password'
                                 type='password'
                                 name='password'
-                                placeholder='password*'
+                                placeholder='password must have at least 6 characters*'
                                 defaultValue={values.password}
                                 onChange={handleChange} />
                             {errors.password && <p>{errors.password}</p>}
@@ -73,7 +73,7 @@ const SignIn = ({ submitForm }) => {
                                 Login with Facebook
                                 </SocialButton>
                         </div>
-                        {/* <div className='loginBtn loginBtn--google'>
+                        <div className='loginBtn loginBtn--google'>
                             <SocialLogin
                                 provider='google'
                                 appId='con_VsAflWaiXW4i95S2'
@@ -81,11 +81,11 @@ const SignIn = ({ submitForm }) => {
                             >
                                 <button>Login with Google</button>
                             </SocialLogin>
-                        </div> */}
+                        </div>
                     </form>
                     <div className='login-image'>
                         <img src={loginImg} alt="sign" />
-                        <p>Create an account <NavLink to="/signup">Sign Up</NavLink></p>
+                        <p >Create an account <NavLink to="/signup">Sign Up</NavLink></p>
                     </div>
                 </div>
             </div>
