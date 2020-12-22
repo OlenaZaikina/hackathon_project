@@ -15,7 +15,6 @@ export function UserProvider({ children }) {
     const [user, setUser] = useState(null)
     function toggleUser(newUser) {
         setUser(newUser)
-        console.log("newUser: ", newUser)
     }
     
 return (

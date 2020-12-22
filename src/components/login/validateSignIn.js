@@ -7,9 +7,9 @@ export default function validateSignIn(values) {
     errors.email = 'Email address is invalid';
   }
   if (!values.password) {
-    errors.password = 'Must have at least 6 characters';
-  } else if (values.password.length < 6) {
-    errors.password = 'Must have at least 6 characters';
+    errors.password = 'Password is required';
+  } else if (values.password.length < 8) {
+    errors.password = 'Password needs to be 8 characters or more';
   }
   return errors;
 }

@@ -10,25 +10,25 @@ import { UserProvider } from './UserContext'
 
 function App() {
   return (
-    <div className="App">
-
-      <Router>
-        <Switch>
-          <UserProvider>
-            <Route exact path="/" component={LandingContainer} />
-            <Route exact path="/signup" component={FormSignUp} />
-            <Route exact path="/signin" component={FormSignIn} />
-            <Route exact path="/dashboard" component={MainContainer} />
-            <Route exact path="/goals-collection" component={MainContainer} />
-            <Route exact path="/newGoal" component={MainContainer} />
-            <Route exact path="/progress" component={MainContainer} />
-            <Route exact path="/updateProgress" component={MainContainer} />
-            <Route exact path="/badges" component={MainContainer} />
-            <Route exact path="/my-profile" component={MainContainer} />
-          </UserProvider>
-        </Switch>
-      </Router>
-    </div>
+        <div className="App">
+          
+            <Router>
+              <Switch>
+              <UserProvider>
+              <Route exact path="/" component={LandingContainer} />
+              <Route exact path="/signup" component={FormSignUp} />
+              <Route exact path="/signin" component={FormSignIn} />
+              <Route exact path="/dashboard" component={MainContainer} />
+              <Route exact path="/myGoals" component={MainContainer} />
+              <Route exact path="/newGoal" component={MainContainer} />
+              <Route exact path="/progress" component={MainContainer} />
+              <Route exact path="/updateProgress" component={MainContainer} />
+              <Route exact path="/badges" component={MainContainer} />
+              <Route exact path="/my-profile" component={MainContainer} />
+              </UserProvider>
+              </Switch>
+            </Router>
+        </div>
   );
 }
 

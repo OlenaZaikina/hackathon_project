@@ -30,3 +30,4 @@ export const SortableMultiValue = SortableElement((props) => {
 });
 
 export const SortableSelect = SortableContainer(Select);
+

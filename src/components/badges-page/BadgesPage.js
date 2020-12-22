@@ -20,9 +20,9 @@ const BadgesPage = () => {
             {
                 badgesData.map((item) => {
                     const badgeClass = userBadges.includes(item.identifier) ? 'received' : 'not-received';
-                    return <div key={Date.now() + item.identifier} className={`${badgeClass === 'received' ? 'badge-card-received' : 'badge-card-not-received'} `}
-
-                        style={{ order: `${badgeClass === 'received' ? 0 : 1}` }}>
+                    return <div key={Date.now() + item.identifier} className={`${badgeClass === 'received' ? 'badge-card-received': 'badge-card-not-received'} `}
+                    
+                    style={{ order: `${badgeClass === 'received' ? 0 : 1}` }}>
                         <img alt={item.identifier} src={item.src} className={badgeClass} />
                         <BadgeText title={item.title} />
                     </div>

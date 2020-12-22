@@ -16,10 +16,7 @@ function TrackingPage() {
     if (!isGoals) {
         setInitialGoals();
     }
-
-
-
-
+    console.log('goals', goals)
     return (
         <div className="tracking-container">
 
@@ -28,7 +25,7 @@ function TrackingPage() {
 
                 goals.map((goal, index) => {
                     return (
-                        <div className="tracking-goal-card">
+                        <div key={Date.now() + goal.id} className="tracking-goal-card">
                             <GoalInformation goal={goal} />
                             <div className="tracking-progress-bar">
                                 <CircularProgressbar

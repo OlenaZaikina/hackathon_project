@@ -19,7 +19,7 @@ function MainContainer() {
     console.log('main render')
     let user = useUser()
     let toggleUser = useUserUpdate()
-    if (!user) toggleUser(localStorage.getItem('user'))
+    if (!user)  toggleUser(localStorage.getItem('user'))
     console.log(user)
     const [openSidenav, setOpenSidenav] = useState(false);
 
@@ -45,7 +45,7 @@ function MainContainer() {
                             <Switch>
                                 <Route path='/dashboard' exact component={Dashboard} />
                                 <Route path='/badges' exact component={BadgesPage} />
-                                <Route path='/goals-collection' exact component={MyGoals} />
+                                <Route path='/myGoals' exact component={MyGoals} />
                                 <Route path='/newGoal' exact component={CreateContainer} />
                                 <Route path='/progress' exact component={TrackingPage} />
                                 <Route path='/updateProgress' exact component={UpdateProgress} />
@@ -57,7 +57,7 @@ function MainContainer() {
                 : (
                     <Redirect to="/signin" />
                 )
-            }
+            } 
         </>
     );
 }
