@@ -1,34 +1,53 @@
+import { useState } from 'react';
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
+import { getUserGoals } from '../create-goal/CreateContainer';
+import GoalInformation from './GoalInformation';
 import './style.scss';
 
 function TrackingPage() {
+    const [goals, setGoals] = useState([]);
+    const [isGoals, setIsGoals] = useState(false);
 
-    const goal = {
-        title: 'Title',
-        progress: 71,
-        estimate: '1 day'
+    const setInitialGoals = async () => {
+        const initialGoals = await getUserGoals();
+        setIsGoals(true);
+        setGoals(initialGoals);
     }
+    if (!isGoals) {
+        setInitialGoals();
+    }
+
+
+
 
     return (
         <div className="tracking-container">
-            <div className="tracking-goal-information">
-                <h4>{goal.title}</h4>
-                <p><span>Duration:</span> {goal.estimate}</p>
-                <p>Want to update your progress? </p>
-                <button>Click here</button>
-            </div>
-            <div className="tracking-progress-bar">
-                <CircularProgressbar
-                    value={goal.progress}
-                    text={`${goal.title}
-                    ${goal.progress}%`}
-                    strokeWidth={4}
-                    styles={buildStyles({
-                        textSize: "10px",
-                        pathColor: `rgba(162, 152, 199, ${goal.progress / 100})`,
-                    })}
-                />
-            </div>
+
+            {!isGoals && <p>Loading</p>}
+            {isGoals &&
+
+                goals.map((goal, index) => {
+                    return (
+                        <div className="tracking-goal-card">
+                            <GoalInformation goal={goal} />
+                            <div className="tracking-progress-bar">
+                                <CircularProgressbar
+                                    value={goal.progress || 0}
+                                    text={`${goal.title}
+                            ${goal.progress || 0}%`}
+                                    strokeWidth={4}
+                                    styles={buildStyles({
+                                        textSize: "10px"
+                                    })}
+                                />
+                            </div>
+                        </div>
+                    )
+                })
+
+
+            }
+
         </div>
     )
 }

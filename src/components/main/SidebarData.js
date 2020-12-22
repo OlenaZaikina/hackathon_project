@@ -16,25 +16,25 @@ export const SidebarData = [
   {
     title: 'Create new goal',
     path: '/newGoal',
-    icon: <i className="fa fa-plus" aria-hidden="true"></i>,
+    icon: <i title="Create new goal" className="fa fa-plus" aria-hidden="true"></i>,
     cName: 'new-goal'
   },
   {
     title: 'Progress',
     path: '/progress',
-    icon: <i className="fas fa-spinner" aria-hidden="true"></i>,
+    icon: <i title="Track your progress" className="fas fa-spinner" aria-hidden="true"></i>,
     cName: 'progress'
   },
   {
     title: 'Update your progress',
     path: '/updateProgress',
-    icon: <i className="fas fa-check-circle" aria-hidden="true"></i>,
+    icon: <i title="Update Progress" className="fas fa-check-circle" aria-hidden="true"></i>,
     cName: 'update-progress'
   },
   {
     title: 'Badges',
     path: '/badges',
-    icon: <i className="fas fa-award" aria-hidden="true"></i>,
+    icon: <i title="Your Badges" className="fas fa-award" aria-hidden="true"></i>,
     cName: 'badges-page'
   }
 ];

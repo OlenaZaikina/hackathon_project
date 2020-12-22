@@ -15,6 +15,8 @@ import TrackingPage from '../tracking-progress/TrackingPage';
 
 
 function MainContainer() {
+
+    console.log('main render')
     let user = useUser()
     let toggleUser = useUserUpdate()
     if (!user) toggleUser(localStorage.getItem('user'))

@@ -4,9 +4,9 @@ import { SortableContainer, SortableElement } from "react-sortable-hoc";
 
 export const getCategories = () => {
   let options = [];
-  categories.map((el) => {
+  categories.forEach((el) => {
     let option = {};
-    option.value = el.toLowerCase();
+    option.value = el;
     option.label = el;
 
     options.push(option);
