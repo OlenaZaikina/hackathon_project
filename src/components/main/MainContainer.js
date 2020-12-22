@@ -16,11 +16,9 @@ import TrackingPage from '../tracking-progress/TrackingPage';
 
 function MainContainer() {
 
-    console.log('main render')
     let user = useUser()
     let toggleUser = useUserUpdate()
     if (!user) toggleUser(localStorage.getItem('user'))
-    console.log(user)
     const [openSidenav, setOpenSidenav] = useState(false);
 
     function toggleNav() {
@@ -37,7 +35,6 @@ function MainContainer() {
 
                         <div style={
                             {
-                                // border: '1px solid black',
                                 margin: '50px 20px 50px 70px',
                                 marginLeft: toggleNav().margin,
                                 transition: 'all 0.5s linear',

@@ -30,7 +30,6 @@ const useForm = (callback, validateSignUp) => {
     headers.append('Content-Type', 'application/json');
     headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
     headers.append('Access-Control-Allow-Credentials', 'true');
-    console.log(headers)
     const proxyurl = "https://cryptic-mesa-87242.herokuapp.com/";
     const url = 'http://34.222.107.139:8080/goaltracker/api/register';
     let response = await fetch(proxyurl + ' http://34.222.107.139:8080/goaltracker/api/register', {
@@ -40,8 +39,6 @@ const useForm = (callback, validateSignUp) => {
     })
     let json
     if (response.ok) {
-      //json = response.json();
-      console.log(response)
     } else return
     return response;
   }
@@ -49,7 +46,6 @@ const useForm = (callback, validateSignUp) => {
   async function handleSubmit(e) {
     e.preventDefault();
 
-    //setErrors(validateSignIn(values));
     async function waitForErrors() {
       return setErrors(validateSignUp(values));
     }
@@ -59,9 +55,7 @@ const useForm = (callback, validateSignUp) => {
     }
 
     let result = await executeRegistration(values);
-    console.log('after reg', result)
     if (result) {
-      //do redurect to Sign In temmperary
       return (
         <>
           <Redirect to='/signin' />

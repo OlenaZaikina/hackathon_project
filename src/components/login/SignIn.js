@@ -19,7 +19,7 @@ const SignIn = ({ submitForm }) => {
     const handleSocialLogin = (user) => {
         if (user) {
             let fakeToken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhbmRyaXlAdWtyLm5ldCBVU0VSIn0.bpqjpJoR7YVDiBgF9ySvqaCs3aI8-nCCScJ1mhqweZiLtUP-RuDmuM3mqKICPea5MiGiv8yA8rEEGBRyylT-Uw"
-            //store profile
+
             localStorage.setItem('user', fakeToken);
             toggleUser(fakeToken)
         }

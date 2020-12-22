@@ -36,16 +36,8 @@ const useLoginForm = (callback, validateSignIn) => {
     body,
     headers })
     if (response.ok) {
-      console.log(response)
       let resHeader = response.headers;
-      for (let pair of resHeader.keys()) {
-       console.log(pair)
-      }
-      for (let pair of resHeader.values()) {
-       console.log(pair)
-      }
      for (let pair of resHeader.entries()) {
-       console.log(pair)
        if (pair[0] === 'authorization') {
         return pair[1].substring(7)
       }        
@@ -66,7 +58,6 @@ const useLoginForm = (callback, validateSignIn) => {
     
     let result = await executeLogin(values);
     if (result) {
-      console.log("caught new token", result)
       localStorage.setItem('user', JSON.stringify({'token': result}));
       toggleUser(result)
       return (
@@ -75,9 +66,7 @@ const useLoginForm = (callback, validateSignIn) => {
         {history.push('/dashboard')}
       </>
       )
-      //do redurect to Dashboard
     } else {
-      //show error for user
       console.log("Login failed from server")
     }
 

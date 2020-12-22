@@ -1,52 +1,36 @@
 
 
 const GoalInformation = ({ goal }) => {
-
+    const headers = {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': 'http://localhost:3000',
+        'Access-Control-Allow-Credentials': 'true',
+        'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('user')).token
+    }
+    const proxyurl = 'https://cryptic-mesa-87242.herokuapp.com/' ;
     const updateGoalInfo = async () => {
         try {
-            console.log(goal.daysPassed+1)
             const body = JSON.stringify({
                 daysPassed: goal.daysPassed + 1
             })
-            console.log('goal id in request', goal.id)
-            const response = await fetch('https://cryptic-mesa-87242.herokuapp.com/' + `http://34.222.107.139:8080/goaltracker/api/users/goals/${goal.id}`, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': 'http://localhost:3000',
-                    'Access-Control-Allow-Credentials': 'true',
-                    'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('user')).token
-                },
+            const response = await fetch(proxyurl + `http://34.222.107.139:8080/goaltracker/api/users/goals/${goal.id}`, {
+                headers,
                 method: "PUT",
                 body
             })
-
-            console.log('response', response);
-
             const data = await response.json();
-            console.log('data', data)
         } catch (err) {
-            console.log(err.message)
             return err.message;
         }
     }
 
     const deleteGoal = async () => {
         try {
-            console.log('goal id in request', goal.id)
             const response = await fetch('https://cryptic-mesa-87242.herokuapp.com/' + `http://34.222.107.139:8080/goaltracker/api/users/goals/${goal.id}`, {
-                headers: {
-                    'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': 'http://localhost:3000',
-                    'Access-Control-Allow-Credentials': 'true',
-                    'Authorization': 'Bearer ' + JSON.parse(localStorage.getItem('user')).token
-                },
+                headers,
                 method: "DELETE"
             })
-
-            console.log('response', response);
-
         } catch (err) {
-            console.log(err.message)
             return err.message;
         }
     }
