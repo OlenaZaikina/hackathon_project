@@ -1,0 +1,39 @@
+.badge-card {
+    border: 1px solid grey;
+    min-width: 240px;
+    width: 15%;
+    margin: 1rem 4rem 4rem 0rem;
+    padding: 30px 20px;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    text-align: center;
+    color: #fff;
+    &:hover {
+        transform: translateY(-5%);
+        box-shadow: 0 4rem 8rem rgba(0, 0, 0, .2);
+    }
+}
+
+.badges-page-container {
+    min-height: 70vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .badge-card-received {
+        @extend .badge-card;
+        background: linear-gradient(90deg, #b97640, 40%, #ffe8bd);
+    }
+    .badge-card-not-received {
+        @extend .badge-card;
+        background: linear-gradient(90deg, #42413f, 40%, #989692);
+    }
+    .badge-card {
+        img {
+            width: 100%;
+            object-fit: contain;
+        }
+        .not-received {
+            filter: grayscale(1);
+        }
+    }
+}

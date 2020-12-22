@@ -63,7 +63,7 @@ const SignUp = ({ submitForm }) => {
                     </form>
                     <div className='login-image'>
                         <img src={loginImg} alt="login"/>
-                        <p>Alreade have an account? <NavLink to='signin'>sign in</NavLink></p>
+                        <p>Already have an account? <NavLink to='signin'>Sign in</NavLink></p>
                     </div>
                 </div>
             </div>

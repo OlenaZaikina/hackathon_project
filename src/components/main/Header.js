@@ -1,20 +1,39 @@
+import React from 'react';
+import { Link  } from 'react-router-dom';
+import { useUserUpdate } from '../../UserContext'
+
 import './style.scss';
 
-function Header() {
-    return (
+function Header({ openSidenavFunc, opened }) {
+    //const user = useUser()
+    const toggleUser = useUserUpdate()
+    const localOpened = opened;
+    //let history = useHistory();
 
-        <header className="main-header">
-            <div className="header-container">
-                <div className="header-icon-bar">
-                    <span><i className="fa fa-home" aria-hidden="true"></i></span>
-                    <span><i className="fa fa-envelope" aria-hidden="true"></i></span>
-                    <span><i className="fa fa-user" aria-hidden="true"></i></span>
+    return (
+        <>
+            <header className="main-header">
+                <div className="header-container">
+                    <div className="header-icon-bar">
+                        
+                        <Link to="/signin" onClick={() => { 
+                            toggleUser(null)
+                            localStorage.removeItem('user');
+                            //history.push('/signin')
+                            }}><span><i className="fas fa-sign-out-alt"></i></span></Link>
+                        <Link to="/my-profile"><span><i className="fa fa-user" aria-hidden="true"></i></span></Link>
+                        
+                    </div>
+                    <div className="sidenav-button" onClick={() => {
+                        openSidenavFunc(!localOpened);
+                        }
+                    } >
+                        <span><i className="fa fa-bars" aria-hidden="true"></i></span>
+                    </div>
                 </div>
-                <div className="sidenav-button">
-                <span><i className="fa fa-bars" aria-hidden="true"></i></span>
-                </div>
-            </div>
-        </header>
+
+            </header>
+        </>
     )
 }
 export default Header;
