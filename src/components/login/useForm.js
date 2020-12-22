@@ -21,46 +21,29 @@ const useForm = (callback, validateSignUp) => {
   };
 
   async function executeRegistration({ username, email, password }) {
-
-    try {
-      let headers = new Headers();
-      const body = JSON.stringify({
-        "name": username,
-        "email": email,
-        "password": password
-      })
-      headers.append('Content-Type', 'application/json');
-      headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
-      headers.append('Access-Control-Allow-Credentials', 'true');
-      const proxyurl = "https://cryptic-mesa-87242.herokuapp.com/";
-      const url = 'http://34.222.107.139:8080/goaltracker/api/login';
-      let response = await fetch(proxyurl + 'http://34.222.107.139:8080/goaltracker/api/register', {
-        method: 'POST',
-        body,
-        headers
-      })
+    let headers = new Headers();
+    const body = JSON.stringify({
+      "name": username,
+      "email": email,
+      "password": password
+    })
+    headers.append('Content-Type', 'application/json');
+    headers.append('Access-Control-Allow-Origin', 'http://localhost:3000');
+    headers.append('Access-Control-Allow-Credentials', 'true');
+    console.log(headers)
+    const proxyurl = "https://cryptic-mesa-87242.herokuapp.com/";
+    const url = 'http://34.222.107.139:8080/goaltracker/api/register';
+    let response = await fetch(proxyurl + ' http://34.222.107.139:8080/goaltracker/api/register', {
+      method: 'POST',
+      body,
+      headers
+    })
+    let json
+    if (response.ok) {
+      //json = response.json();
       console.log(response)
-      let json = response.json();
-      console.log(json)
-    } catch (err) {
-      console.log(err.message);
-    }
-
-
-    // try {
-    //   let headers = new Headers();
-    //   const body = JSON.stringify({
-    //     "name": username,
-    //     "email": email,
-    //     "password": password
-    //   })
-    // } catch (err) {
-
-    // }
-    // if (response.ok) {
-
-    // } else return
-    // return json;
+    } else return
+    return response;
   }
 
   async function handleSubmit(e) {
@@ -76,6 +59,7 @@ const useForm = (callback, validateSignUp) => {
     }
 
     let result = await executeRegistration(values);
+    console.log('after reg', result)
     if (result) {
       //do redurect to Sign In temmperary
       return (

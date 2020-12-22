@@ -30,13 +30,22 @@ const useLoginForm = (callback, validateSignIn) => {
     headers.append('Content-Type', 'application/json');
 
     const proxyurl = "https://cryptic-mesa-87242.herokuapp.com/";
+    let oldProxy = 'https://cors-anywhere.herokuapp.com/'
     const url = 'http://34.222.107.139:8080/goaltracker/api/login';
-    let response = await fetch(proxyurl + 'http://34.222.107.139:8080/goaltracker/api/login', { method: 'POST', 
+    let response = await fetch(proxyurl + url, { method: 'POST', 
     body,
     headers })
     if (response.ok) {
+      console.log(response)
       let resHeader = response.headers;
+      for (let pair of resHeader.keys()) {
+       console.log(pair)
+      }
+      for (let pair of resHeader.values()) {
+       console.log(pair)
+      }
      for (let pair of resHeader.entries()) {
+       console.log(pair)
        if (pair[0] === 'authorization') {
         return pair[1].substring(7)
       }        
@@ -57,6 +66,7 @@ const useLoginForm = (callback, validateSignIn) => {
     
     let result = await executeLogin(values);
     if (result) {
+      console.log("caught new token", result)
       localStorage.setItem('user', JSON.stringify({'token': result}));
       toggleUser(result)
       return (

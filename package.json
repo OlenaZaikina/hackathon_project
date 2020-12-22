@@ -43,6 +43,7 @@
   },
   "devDependencies": {
     "react-router-dom": "^5.2.0",
-    "react-social-login": "^3.4.10"
+    "react-social-login": "^3.4.10",
+    "reactjs-popup": "^2.0.4"
   }
 }

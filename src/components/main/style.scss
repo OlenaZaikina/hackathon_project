@@ -51,10 +51,9 @@
 .sidenav {
   position: fixed;
   display: inline-block;
-  height: 95vh;
   width: 40px;
   min-width: 40px;
-  border-right: 0.5px solid #e1e1e1;
+  border: 0.5px solid #e1e1e1;
   overflow: hidden;
   transition: all 0.5s linear;
   .nav-container {
