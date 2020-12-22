@@ -11,7 +11,7 @@ import { useUser, useUserUpdate } from '../../UserContext'
 const SignIn = ({ submitForm }) => {
     const oldUser = useUser()
     const toggleUser = useUserUpdate()
-    const {handleChange, values, handleSubmit, errors } = useLoginForm(
+    const { handleChange, values, handleSubmit, errors } = useLoginForm(
         submitForm,
         validateSignIn
     );
@@ -22,7 +22,7 @@ const SignIn = ({ submitForm }) => {
             //store profile
             localStorage.setItem('user', fakeToken);
             toggleUser(fakeToken)
-            }
+        }
         submitForm()
     }
 
@@ -35,57 +35,57 @@ const SignIn = ({ submitForm }) => {
         console.error('err social login', err)
     }
 
-        return (
-            <div className='base-container'>
+    return (
+        <div className='base-container'>
             <div className='login-container'>
                 <div className='login-header'>Login</div>
                 <div className='login-content'>
                     <form className='form' onSubmit={handleSubmit}>
                         <div className='form-group'>
-                            <input 
-                            id='email' 
-                            type='email' 
-                            name='email' 
-                            placeholder='email address*'
-                            defaultValue={values.email}
-                            onChange={handleChange} />
+                            <input
+                                id='email'
+                                type='email'
+                                name='email'
+                                placeholder='email address*'
+                                defaultValue={values.email}
+                                onChange={handleChange} />
                             {errors.email && <p>{errors.email}</p>}
                         </div>
                         <div className='form-group'>
-                            <input 
-                            id='password' 
-                            type='password' 
-                            name='password' 
-                            placeholder='password*'
-                            defaultValue={values.password}
-                            onChange={handleChange} />
-                            {errors.password && <p>{errors.password}</p>} 
+                            <input
+                                id='password'
+                                type='password'
+                                name='password'
+                                placeholder='password*'
+                                defaultValue={values.password}
+                                onChange={handleChange} />
+                            {errors.password && <p>{errors.password}</p>}
                         </div>
                         <div className='login-footer'>
-                            <button type='submit' className='login-btn'>Login</button>  
+                            <button type='submit' className='login-btn'>Login</button>
                         </div>
                         <div className='loginBtn loginBtn--facebook'>
-                                <SocialButton
-                                    provider='facebook'
-                                    appId='281272943330125'
-                                    onLoginSuccess={handleSocialLogin}
-                                >
-                                    Login with Facebook
+                            <SocialButton
+                                provider='facebook'
+                                appId='281272943330125'
+                                onLoginSuccess={handleSocialLogin}
+                            >
+                                Login with Facebook
                                 </SocialButton>
-			            </div>
-                        <div className='loginBtn loginBtn--google'> 
+                        </div>
+                        <div className='loginBtn loginBtn--google'>
                             <SocialLogin
                                 provider='google'
                                 appId='con_VsAflWaiXW4i95S2'
                                 onLoginSuccess={() => submitForm()}
-                                >
+                            >
                                 <button>Login with Google</button>
                             </SocialLogin>
                         </div>
                     </form>
                     <div className='login-image'>
-                        <img src={loginImg} alt="sign"/>
-                        <p>Create an account<NavLink to="/signup">Sign Up</NavLink></p>
+                        <img src={loginImg} alt="sign" />
+                        <p>Create an account <NavLink to="/signup">Sign Up</NavLink></p>
                     </div>
                 </div>
             </div>

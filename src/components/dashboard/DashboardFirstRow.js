@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import FiltersContainer from "./FiltersContainer";
 import GoalsContainer from "./GoalsContainer";
 import FriendsContainer from "./FriendsContainer";
+import { getUserGoals } from '../create-goal/CreateContainer';
 
 const goalsInitial = [
   { percentage: 10, goal: "quite smoke", category: "health" },
@@ -12,7 +13,23 @@ const goalsInitial = [
 ];
 
 function DashboardFirstRow() {
-  const [goals, setGoals] = useState(goalsInitial);
+  const [goals, setGoals] = useState([]);
+  const [isGoals, setIsGoals] = useState(false);
+
+  const setInitialGoals = async () => {
+    console.log('getUSERGOALS', getUserGoals())
+    const initialGoals = await getUserGoals();
+    console.log('initial Goals', initialGoals)
+    setIsGoals(true);
+    setGoals(initialGoals);
+  }
+
+  if (!isGoals) {
+    setInitialGoals();
+  }
+
+
+
 
   const sortGoals = (categories) => {
     let newGoals = categories.map((category) =>

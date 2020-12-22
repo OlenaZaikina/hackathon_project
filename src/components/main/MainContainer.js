@@ -8,16 +8,16 @@ import MyGoals from './pages/MyGoals';
 import UpdateProgress from './pages/UpdateProgress';
 import ProfilePage from './pages/ProfilePage';
 import CreateContainer from '../create-goal/CreateContainer';
+import './style.scss';
 import { useUser, useUserUpdate } from '../../UserContext'
 import TrackingPage from '../tracking-progress/TrackingPage';
-import './style.scss';
 
 
 
 function MainContainer() {
     let user = useUser()
     let toggleUser = useUserUpdate()
-    if (!user)  toggleUser(localStorage.getItem('user'))
+    if (!user) toggleUser(localStorage.getItem('user'))
     console.log(user)
     const [openSidenav, setOpenSidenav] = useState(false);
 
@@ -55,7 +55,7 @@ function MainContainer() {
                 : (
                     <Redirect to="/signin" />
                 )
-            } 
+            }
         </>
     );
 }

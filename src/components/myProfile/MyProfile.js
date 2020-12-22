@@ -23,57 +23,57 @@ const UserIcon = {
 
 const MyProfile = () => {
     const badgeData = {
-    'dayBadge': dayBadge,
-    'weekBadge': weekBadge,
-    'monthBadge': monthBadge,
-    'yearBadge': yearBadge,
-    'completedBadge': completedBadge
-}
+        'dayBadge': dayBadge,
+        'weekBadge': weekBadge,
+        'monthBadge': monthBadge,
+        'yearBadge': yearBadge,
+        'completedBadge': completedBadge
+    }
     let user = useUser()
     let userdata = GetAPI('/profile/me')
     return (
         <>
-        {Object.keys(userdata).length > 0
-        ? (<div className='user-profile-containe' >
-             <div className="user-profile">
-                 {userdata.badges.length > 2 
-                 ? <img src={userIcon1} alt='avatar' style={{ width: "20%" }} />
-                 : <img src={userIcon3} alt='avatar' style={{ width: "20%" }} />
-                 }
-                <h1>{ userdata.name }</h1>
-                <div className="user-badges">
-                    <h2>Badges</h2>
-                    {userdata.badges.map((badge, index) => {
-                        return (
-                    <img key={index} src={badgeData[badge]} alt='avatar' style={{ width: "25%" }} />
-                    )
-                })}
-                </div> 
-            </div>
-            <div className='friend-profile-container'>
-            {userdata.friends.map((friend, index) => {
-                return (
-                    <div key={friend.id} className='user-friends-frofile'>
-                    {userdata.badges.length > 2 
-                        ? <img src={userIcon1} alt='avatar' style={{ width: "20%" }} />
-                        : <img src={userIcon3} alt='avatar' style={{ width: "20%" }} />
-                    }
-                    <h2>{ friend.name }</h2>
-                    <div className="user-badges">
-                    <div className="user-badges">
-                        {friend.badges.map((badge, index) => { 
-                         return (<img key={index} alt='achievements' src={badgeData[badge]} style={{ width: "25%" }} />)
+            {Object.keys(userdata).length > 0
+                ? (<div className='user-profile-containe' >
+                    <div className="user-profile">
+                        {userdata.badges.length > 2
+                            ? <img src={userIcon1} alt='avatar' style={{ width: "20%" }} />
+                            : <img src={userIcon3} alt='avatar' style={{ width: "20%" }} />
+                        }
+                        <h1>{userdata.name}</h1>
+                        <div className="user-badges">
+                            <h2>Badges</h2>
+                            {userdata.badges.map((badge, index) => {
+                                return (
+                                    <img key={index} src={badgeData[badge]} alt='avatar' style={{ width: "25%" }} />
+                                )
+                            })}
+                        </div>
+                    </div>
+                    <div className='friend-profile-container'>
+                        {userdata.friends.map((friend, index) => {
+                            return (
+                                <div key={friend.id} className='user-friends-frofile'>
+                                    {userdata.badges.length > 2
+                                        ? <img src={userIcon1} alt='avatar' style={{ width: "20%" }} />
+                                        : <img src={userIcon3} alt='avatar' style={{ width: "20%" }} />
+                                    }
+                                    <h2>{friend.name}</h2>
+                                    <div className="user-badges">
+                                        <div className="user-badges">
+                                            {friend.badges.map((badge, index) => {
+                                                return (<img key={index} alt='achievements' src={badgeData[badge]} style={{ width: "25%" }} />)
+                                            })}
+                                        </div>
+                                    </div>
+                                    <button type='button'>view profile</button>
+                                </div>
+                            )
                         })}
                     </div>
-                    </div>
-                    <button type='button'>view profile</button> 
-                </div>
-                )
-              })}
-            </div>
-         </div> )
-         : ( null) } 
-         </>    
+                </div>)
+                : (null)}
+        </>
     )
 }
 
