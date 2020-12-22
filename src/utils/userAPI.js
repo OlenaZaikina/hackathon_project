@@ -23,5 +23,3 @@ function GetAPI(sufix) {
     return userData
 }
 export default GetAPI;
-
-
