@@ -73,7 +73,7 @@ const SignIn = ({ submitForm }) => {
                                 Login with Facebook
                                 </SocialButton>
                         </div>
-                        <div className='loginBtn loginBtn--google'>
+                        {/* <div className='loginBtn loginBtn--google'>
                             <SocialLogin
                                 provider='google'
                                 appId='con_VsAflWaiXW4i95S2'
@@ -81,7 +81,7 @@ const SignIn = ({ submitForm }) => {
                             >
                                 <button>Login with Google</button>
                             </SocialLogin>
-                        </div>
+                        </div> */}
                     </form>
                     <div className='login-image'>
                         <img src={loginImg} alt="sign" />

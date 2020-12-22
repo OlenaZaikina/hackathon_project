@@ -43,7 +43,7 @@ function MainContainer() {
                             <Switch>
                                 <Route path='/dashboard' exact component={Dashboard} />
                                 <Route path='/badges' exact component={BadgesPage} />
-                                <Route path='/myGoals' exact component={MyGoals} />
+                                <Route path='/goals-collection' exact component={MyGoals} />
                                 <Route path='/newGoal' exact component={CreateContainer} />
                                 <Route path='/progress' exact component={TrackingPage} />
                                 <Route path='/updateProgress' exact component={UpdateProgress} />

@@ -6,9 +6,9 @@ function GoalsContainer({ goals }) {
 
   return (
     <div className="goals-container">
-      {goals.map((el) => (
+      {/* {goals.map((el) => (
         <Goal key={`${el.goal}`} config={el} />
-      ))}
+      ))} */}
     </div>
   );
 }

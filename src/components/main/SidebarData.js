@@ -8,10 +8,10 @@ export const SidebarData = [
     cName: 'home-page'
   },
   {
-    title: 'My Goals',
-    path: '/myGoals',
+    title: 'Goals',
+    path: '/goals-collection',
     icon: <i className="fas fa-thumbtack" aria-hidden="true"></i>,
-    cName: 'my-goals'
+    cName: 'goals-collection'
   },
   {
     title: 'Create new goal',
