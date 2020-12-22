@@ -26,12 +26,6 @@ export const SidebarData = [
     cName: 'progress'
   },
   {
-    title: 'Update your progress',
-    path: '/updateProgress',
-    icon: <i title="Update Progress" className="fas fa-check-circle" aria-hidden="true"></i>,
-    cName: 'update-progress'
-  },
-  {
     title: 'Badges',
     path: '/badges',
     icon: <i title="Your Badges" className="fas fa-award" aria-hidden="true"></i>,

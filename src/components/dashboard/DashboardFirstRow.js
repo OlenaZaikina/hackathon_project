@@ -11,7 +11,6 @@ function DashboardFirstRow() {
   const [isGoals, setIsGoals] = useState(false);
   const [offset, setOffset] = useState(0);
   const [goalsPerPage, setGoalsPerPage] = useState(5);
-
   const passInitialGoals = async () => {
     const goals = await getUserGoals();
     setIsGoals(true);
@@ -37,12 +36,16 @@ function DashboardFirstRow() {
       initialGoals.filter((goal) => goal.category === category)
     );
     newGoals = newGoals.reduce((acc, el) => [...acc, ...el], []);
-    setGoals(newGoals.slice(offset, offset + goalsPerPage));
+    setGoalsLength(newGoals.length);
+    const goals = newGoals.slice(offset, offset + goalsPerPage);
+    setGoals(goals);
   };
 
   const filterGoals = (categories) => {
     if (!categories || !categories.length) {
-      setGoals(initialGoals.slice(offset, offset + goalsPerPage));
+      const goals = initialGoals.slice(offset, offset + goalsPerPage);
+      setGoals(goals);
+      setGoalsLength(initialGoals.length);
     } else {
       sortGoals(categories);
     }

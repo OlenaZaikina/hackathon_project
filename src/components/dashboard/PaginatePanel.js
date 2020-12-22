@@ -6,15 +6,19 @@ function PaginatePanel({ setOffset, offset, goalsLength }) {
   };
   return (
     <div className="paginate-panel">
-      <span className="previous" onClick={() => handleClick(-5)}>
-        &larr;
-      </span>
+      {offset !== 0 && (
+        <span className="previous" onClick={() => handleClick(-5)}>
+          &larr;
+        </span>
+      )}
       <span className="current">
-        {offset + 1} - {offset + goalsLength}
+        {offset + 1} - {offset + 5}
       </span>
-      <span className="next" onClick={() => handleClick(5)}>
-        &rarr;
-      </span>
+      {offset + 5 < goalsLength && (
+        <span className="next" onClick={() => handleClick(5)}>
+          &rarr;
+        </span>
+      )}
     </div>
   );
 }

@@ -1,61 +1,69 @@
-.button{
-    padding: 2rem 3rem;
-    width: 50px;
+.button {
+    padding: 1rem 2rem;
+    margin: 15px;
+    width: 230px;
     border: none;
     outline: none;
     border-radius: 10px;
+    color: #fff;
+    font-size: 14px;
+    &:hover {
+        cursor: pointer;
+        opacity: 0.8;
+    }
 }
 
 .tracking-container {
     width: 75%;
     margin: 0 auto;
     display: flex;
-    flex-wrap:wrap;
+    flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
     padding: 2rem;
-
-    .tracking-goal-card{
+    @media(max-width: 600px){
+        width: 100%;
+        padding: 0;
+    }
+    .tracking-goal-card {
         display: flex;
         width: 100%;
         justify-content: space-around;
-        border: 1px solid grey;
+        border: 1px solid transparent;
         border-radius: 10px;
         margin-bottom: 2rem;
-        @media(max-width: 700px){
+        padding: 2rem;
+        box-shadow: 0 5px 5px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.25);
+        @media(max-width: 700px) {
             flex-direction: column;
             justify-content: center;
         }
-        &:nth-child(even){
-            background-color: #f6e8d8;
+        .tracking-progress-bar {
+            width: 25%;
+            min-width: 150px;
+            @media(max-width: 700px) {
+                order: 0;
+            }
         }
-       &:nth-child(odd){
-            background-color: rgb(114, 189, 226);
-        }
-    .tracking-progress-bar {
-        width: 25%;
-        min-width: 150px;
-        @media(max-width: 700px){
-            order: 0;
-        }
-    }
-    .tracking-goal-information{
-        h4{
-            font-size: 24px;
-        }
-        h4,span{
-            color: #242553;
-        }
-        .update-goal{
-            @extend .button;
-        }
-        .delete-goal{
-            @extend .button;
-        }
-        @media(max-width: 700px){
-            order: 1;
+        .tracking-goal-information {
+            h4 {
+                font-size: 24px;
+            }
+            h4,
+            span {
+                color: #242553;
+            }
+            .update-goal {
+                @extend .button;
+                background-color: rgb(43, 115, 43)
+            }
+            .delete-goal {
+                @extend .button;
+                background-color: rgb(125, 18, 18)
+            }
+            @media(max-width: 700px) {
+                order: 1;
+            }
         }
     }
-   
-}
 }

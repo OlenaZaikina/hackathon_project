@@ -3,7 +3,7 @@ import "react-circular-progressbar/dist/styles.css";
 import "./index.scss";
 
 function Goal({ config }) {
-  const { title, percentage } = config;
+  const { title, percentage, category } = config;
 
   return (
     <div className="goal">
@@ -12,7 +12,8 @@ function Goal({ config }) {
         text={`${percentage || 0}%`}
         strokeWidth={4}
       />
-      {title}
+      {title}<br/>
+      {category}
     </div>
   );
 }
