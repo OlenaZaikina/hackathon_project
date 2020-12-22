@@ -10,11 +10,17 @@
 .dashboard-first-row {
   display: flex;
   justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: #f3f3f3;
+  padding: 15px;
+  border-radius: 10px;
+
   .dashboard-left-panel {
-    width: 59%;
-    background-color: #f3f3f3;
-    padding: 15px;
-    border-radius: 10px;
+    width: 80%;
+    margin: 0 auto;
+    @media(max-width: 800px){
+      width: 100%;
+    }
   }
   .dashboard-right-panel {
     width: 40%;
@@ -71,6 +77,21 @@
   }
   .filter-by-category {
     margin: 20px 0;
+  }
+  .paginate-panel {
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    .previous,
+    .next {
+      cursor: pointer;
+      font-size: 40px;
+      margin: 0 30px;
+    }
+    .current {
+      display: flex;
+      align-items: center;
+    }
   }
 }
 

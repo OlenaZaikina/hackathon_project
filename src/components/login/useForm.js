@@ -39,6 +39,7 @@ const useForm = (callback, validateSignUp) => {
         body,
         headers
       })
+      console.log(response)
       let json = response.json();
       console.log(json)
     } catch (err) {

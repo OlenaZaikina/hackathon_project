@@ -2,53 +2,49 @@ import { useState, useEffect } from "react";
 import FiltersContainer from "./FiltersContainer";
 import GoalsContainer from "./GoalsContainer";
 import FriendsContainer from "./FriendsContainer";
-import { getUserGoals } from '../create-goal/CreateContainer';
-
-const goalsInitial = [
-  { percentage: 10, goal: "quite smoke", category: "health" },
-  { percentage: 50, goal: "walk with dog", category: "other" },
-  { percentage: 100, goal: "dring water", category: "health" },
-  { percentage: 10, goal: "quite smoke2", category: "health" },
-  { percentage: 50, goal: "walk with dog2", category: "other" },
-];
+import { getUserGoals } from "../create-goal/CreateContainer";
 
 function DashboardFirstRow() {
+  const [initialGoals, setInitialGoals] = useState([]);
   const [goals, setGoals] = useState([]);
+  const [goalsLength, setGoalsLength] = useState(0);
   const [isGoals, setIsGoals] = useState(false);
+  const [offset, setOffset] = useState(0);
+  const [goalsPerPage, setGoalsPerPage] = useState(5);
 
-  const setInitialGoals = async () => {
-    console.log('getUSERGOALS', getUserGoals())
-    const initialGoals = await getUserGoals();
-    console.log('initial Goals', initialGoals)
+  const passInitialGoals = async () => {
+    const goals = await getUserGoals();
     setIsGoals(true);
-    setGoals(initialGoals);
-  }
+    setInitialGoals(goals);
+    setGoals(goals.slice(offset, offset + goalsPerPage));
+    setGoalsLength(goals.length);
+  };
 
   if (!isGoals) {
-    setInitialGoals();
+    passInitialGoals();
   }
 
+  // if (window.innerWidth < 800) {
+  //   setGoalsPerPage(3);
+  // }
 
-
+  useEffect(() => {
+    passInitialGoals();
+  }, [offset]);
 
   const sortGoals = (categories) => {
     let newGoals = categories.map((category) =>
-      goals.filter((goal) => goal.category === category)
+      initialGoals.filter((goal) => goal.category === category)
     );
     newGoals = newGoals.reduce((acc, el) => [...acc, ...el], []);
-    setGoals(newGoals);
+    setGoals(newGoals.slice(offset, offset + goalsPerPage));
   };
 
   const filterGoals = (categories) => {
-    console.log(categories);
     if (!categories || !categories.length) {
-      setGoals(goalsInitial);
+      setGoals(initialGoals.slice(offset, offset + goalsPerPage));
     } else {
-      let newGoals = categories.map((category) =>
-        goalsInitial.filter((goal) => goal.category === category)
-      );
-      newGoals = newGoals.reduce((acc, el) => [...acc, ...el], []);
-      setGoals(newGoals);
+      sortGoals(categories);
     }
   };
 
@@ -56,11 +52,16 @@ function DashboardFirstRow() {
     <div className="row dashboard-first-row">
       <div className="dashboard-left-panel">
         <FiltersContainer sortGoals={sortGoals} filterGoals={filterGoals} />
-        <GoalsContainer goals={goals} />
+        <GoalsContainer
+          goals={goals}
+          goalsLength={goalsLength}
+          setOffset={setOffset}
+          offset={offset}
+        />
       </div>
-      <div className="dashboard-right-panel">
+      {/* <div className="dashboard-right-panel">
         <FriendsContainer />
-      </div>
+      </div> */}
     </div>
   );
 }

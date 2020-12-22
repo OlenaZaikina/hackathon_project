@@ -13,7 +13,7 @@ function SelectCategory({ sortGoals, filterGoals }) {
     selectedOptions = selectedOptions
       ? selectedOptions.reduce((acc, el) => (acc = [...acc, el.value]), [])
       : [];
-    filterGoals(selectedOptions);
+    filterGoals(selectedOptions);    
   };
 
   const onSortEnd = ({ oldIndex, newIndex }) => {
