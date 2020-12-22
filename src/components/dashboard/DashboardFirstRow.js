@@ -1,9 +1,37 @@
 import { useState, useEffect } from "react";
 import FiltersContainer from "./FiltersContainer";
 import GoalsContainer from "./GoalsContainer";
-import FriendsContainer from "./FriendsContainer";
 import { getUserGoals } from "../create-goal/CreateContainer";
 import { useUser } from '../../UserContext'
+
+// export const getGoalsByStatus = async (status) => {
+//   try {
+
+//     if (status === 'all') {
+//       status = '';
+//     }
+//     const response = await fetch(
+
+
+//       "https://cryptic-mesa-87242.herokuapp.com/" +
+//       `http://34.222.107.139:8080/goaltracker/api/users/goals/status/${status}`,
+//       {
+//         headers: {
+//           "Content-Type": "application/json",
+//           "Access-Control-Allow-Origin": "http://localhost:3000",
+//           "Access-Control-Allow-Credentials": "true",
+//           Authorization:
+//             "Bearer " + JSON.parse(localStorage.getItem("user")).token,
+//         },
+//       }
+//     );
+//     const data = await response.json();
+//     console.log(data)
+//     return data;
+//   } catch (err) {
+//     return err.message;
+//   }
+// };
 
 function DashboardFirstRow() {
   const [initialGoals, setInitialGoals] = useState([]);
@@ -25,10 +53,6 @@ function DashboardFirstRow() {
   if (!isGoals) {
     passInitialGoals();
   }
-
-  // if (window.innerWidth < 800) {
-  //   setGoalsPerPage(3);
-  // }
 
   useEffect(() => {
     passInitialGoals();
@@ -54,10 +78,25 @@ function DashboardFirstRow() {
     }
   };
 
+  // const filterByStatus = async (status) => {
+  //   const goals = await getGoalsByStatus(status);
+  //   console.log("GOAAALS", goals)
+  //   setIsGoals(true);
+  //   setInitialGoals(goals);
+  //   setGoals(goals.slice(offset, offset + goalsPerPage));
+  //   setGoalsLength(goals.length);
+  // };
+
   return (
     <div className="row dashboard-first-row">
       <div className="dashboard-left-panel">
-        <FiltersContainer sortGoals={sortGoals} filterGoals={filterGoals} />
+        <FiltersContainer
+          sortGoals={sortGoals}
+          filterGoals={filterGoals}
+        // filterByStatus={filterByStatus}
+        />
+
+
         <GoalsContainer
           goals={goals}
           goalsLength={goalsLength}
@@ -65,9 +104,6 @@ function DashboardFirstRow() {
           offset={offset}
         />
       </div>
-      {/* <div className="dashboard-right-panel">
-        <FriendsContainer />
-      </div> */}
     </div>
   );
 }

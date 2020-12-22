@@ -5,11 +5,17 @@ import "./index.scss";
 function GoalsContainer({ goals, setOffset, offset, goalsLength }) {
   return (
     <>
-      <div className="goals-container">
-        {goals.map((el) => (
-          <Goal key={`${el.id}`} config={el} />
-        ))}
-      </div>
+      {goalsLength === 0 && <p>No goals here!</p>}
+
+
+      {goalsLength !== 0 &&
+        <div className="goals-container">
+          {goals.map((el) => (
+            <Goal key={`${el.id}`} config={el} />
+          ))}
+        </div>
+      }
+
       {goalsLength > 5 && (
         <PaginatePanel
           setOffset={setOffset}
